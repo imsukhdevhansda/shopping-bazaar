@@ -1,0 +1,8 @@
+{
+  "short_name": "shopping-bazaar",
+  "name": "shopping-bazaar",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
