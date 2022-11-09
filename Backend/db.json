@@ -1,0 +1,13 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Rahul Kumar",
+      "password": "typicode",
+      "address" : "Mumbai",
+      "wishlist" : [],
+      "cart" : []
+    }
+  ]
+
+}
