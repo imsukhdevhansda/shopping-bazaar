@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import style from "../Styles/men.module.css";
 
 function Products() {
-  return (
-    <div>Products</div>
-  )
+  return <div className={style.uniqueProducts}>Products</div>;
 }
 
-export default Products
+export default Products;

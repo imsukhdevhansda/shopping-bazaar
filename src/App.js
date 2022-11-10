@@ -5,9 +5,9 @@ import PhoneLogin from "./Components/Signup/PhoneLogin"
 import OTPpage from "./Components/Signup/OTPpage";
 
 function App() {
-  return <div className="App">
-    
-  </div>;
+  return <div className="App"></div>;
+
+
 }
 
 export default App;
