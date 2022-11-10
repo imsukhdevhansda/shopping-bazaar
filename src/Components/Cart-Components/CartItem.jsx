@@ -1,36 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "./Image";
 import { BiCheck } from "react-icons/bi";
-import { MdArrowDropDown } from "react-icons/md";
+import { MdArrowDropDown, MdClose } from "react-icons/md";
 
-const CartItem = () => {
+const CartItem = ({
+  image,
+  brand,
+  title,
+  sold,
+  id,
+  size,
+  selected_size,
+  price,
+  mrp,
+}) => {
+  //Image link, brand name,title,sold by,item id
+  const [quantity, setQuantity] = useState(1);
+  const handleDeleteItem = () => {
+    console.log(id);
+  };
+  const handleItemQuantity = () => {
+    console.log(quantity);
+  };
+  const handleItemSize = () => {
+    size.forEach((size) => console.log(size));
+  };
   return (
     <CartContainer>
+      <RemoveCart onClick={handleDeleteItem}>
+        <MdClose />
+      </RemoveCart>
       <>
-        <Image
-          width="148"
-          src={
-            "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/14935572/2021/12/2/378b0fd7-9207-47b4-bdc7-05c035a4c73f1638420449785-Roadster-Burgundy-Striped-Gathered-Fitted-Top-82716384204491-1.jpg"
-          }
-        />
+        <Image height="148" src={image} />
       </>
       <DetailsContainer>
-        <div>Brand Name</div>
-        <div>Title Of the Product</div>
-        <div>Sold by: Seller Name</div>
+        <div>{brand}</div>
+        <div>{title}</div>
+        <div>Sold by: {sold}</div>
         <div>
-          <Options>Size M {<MdArrowDropDown />}</Options>
-          <Options>Qty 1 {<MdArrowDropDown />}</Options>
+          <Options onClick={handleItemSize}>
+            Size {selected_size} {<MdArrowDropDown />}
+          </Options>
+          <Options onClick={handleItemQuantity}>
+            Qty {quantity} {<MdArrowDropDown />}
+          </Options>
         </div>
         <div>
-          <PriceTag>₹ 789</PriceTag>
-          <MRP>₹ 1299</MRP>
+          <PriceTag>₹ {price}</PriceTag>
+          <MRP>₹ {mrp}</MRP>
           <Discount>70% OFF</Discount>
         </div>
         <div>
           <BiCheck />
-          Deliverd by 17th Nov
+          Deliverd by <b>17th Nov</b>
         </div>
       </DetailsContainer>
     </CartContainer>
@@ -42,6 +65,7 @@ const CartContainer = styled.div`
   border: 1px solid #eaeaec;
   border-radius: 4px;
   padding: 16px;
+  position: relative;
 `;
 const DetailsContainer = styled.div`
   display: inline-block;
@@ -73,6 +97,14 @@ const MRP = styled.span`
 const Discount = styled.span`
   margin-right: 7px;
   color: #f16565;
+`;
+
+const RemoveCart = styled.div`
+  font-size: 28px;
+  top: 15px;
+  right: 15px;
+  position: absolute;
+  cursor: pointer;
 `;
 
 export default CartItem;
