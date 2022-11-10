@@ -1,4 +1,4 @@
-import * as types from "./actionTypes";
+// import * as types from "./actionTypes";
 const initialState = {
   name: null, //For displaying the login user name
   userId: null, //Can be user Email,Mobile Number
@@ -13,7 +13,7 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case types.ADD_USER_NAME:
+    case "":
       return { ...state, name: payload };
     default:
       return state;
