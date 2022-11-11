@@ -10,6 +10,8 @@ const Button = ({
   padding,
   fsize,
   fweight,
+  height,
+  width,
 }) => {
   return (
     <Btn
@@ -20,6 +22,8 @@ const Button = ({
       padding={padding}
       fsize={fsize}
       fweight={fweight}
+      height={height}
+      width={width}
     >
       {text}
     </Btn>
@@ -35,6 +39,8 @@ const Btn = styled.button`
   padding: ${(padding) => padding.padding && padding.padding};
   font-size: ${(fsize) => fsize.fsize && fsize.fsize};
   font-weight: ${(fweight) => fweight.fweight && fweight.fweight};
+  width: ${(width) => width.width && width.width};
+  height: ${(height) => height.height && height.height};
 `;
 
 export default Button;
