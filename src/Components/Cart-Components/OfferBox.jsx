@@ -21,7 +21,7 @@ const OfferBox = () => {
         <TbDiscount2 />
         <b>Available Offers</b>
       </div>
-      <div>
+      <ListContainer>
         <li>{offerLists[0]}</li>
         {showMoreOffer &&
           offerLists.map((lists, index) => {
@@ -31,7 +31,7 @@ const OfferBox = () => {
           {showMoreOffer ? "Show Less" : "Show More"}
           {showMoreOffer ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
         </MoreOffer>
-      </div>
+      </ListContainer>
     </OfferContainer>
   );
 };
@@ -40,6 +40,13 @@ const OfferContainer = styled.div`
   border: 1px solid #eaeaec;
   border-radius: 4px;
   padding: 16px;
+`;
+
+const ListContainer = styled.div`
+  & > li {
+    margin: 10px;
+    line-height: 1.7;
+  }
 `;
 
 const MoreOffer = styled.div`

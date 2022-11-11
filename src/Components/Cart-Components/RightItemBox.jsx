@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { MdKeyboardArrowRight, MdLocalOffer } from "react-icons/md";
 import { TbDiscount2 } from "react-icons/tb";
 import Button from "./Button";
+import PriceDetails from "./PriceDetails";
+import RightContentBox from "./RightContentBox";
 
 const RightItemBox = () => {
   return (
-    <Box>
+    <RightContentBox>
       <OffersAndCuppons>
         <BaseHeader>OFFERS & CUPONS</BaseHeader>
         <BagOffer>
@@ -47,39 +49,8 @@ const RightItemBox = () => {
 
       <hr />
 
-      <PriceDetails>
-        <BaseHeader>Price Details (5 Items)</BaseHeader>
-        <div>
-          <ToLeft>Total MRP</ToLeft>
-          <ToRight>₹ 9854</ToRight>
-        </div>
-        <div>
-          <ToLeft>Discount on MRP</ToLeft>
-          <ToRight>
-            <Text color="green">-₹ 3650</Text>
-          </ToRight>
-        </div>
-        <div>
-          <ToLeft>Coupon Discount</ToLeft>
-          <ToRight>{<Text color="rgb(255 63 108)">Apply Coupon</Text>}</ToRight>
-        </div>
-        <div>
-          <ToLeft>Convenience Fee</ToLeft>
-          <ToRight>
-            <span>
-              <TextLineThrough>99</TextLineThrough>
-            </span>
-            <span>
-              <Text color="green">FREE</Text>
-            </span>
-          </ToRight>
-        </div>
-      </PriceDetails>
-      <hr />
-      <TotalPriceBox>
-        <ToLeft>Total Amount</ToLeft>
-        <ToRight>9854</ToRight>
-      </TotalPriceBox>
+      <PriceDetails />
+
       <div>
         <Button
           color={"white"}
@@ -91,31 +62,9 @@ const RightItemBox = () => {
           bgColor={"rgb(255 63 108)"}
         />
       </div>
-    </Box>
+    </RightContentBox>
   );
 };
-
-const Box = styled.div`
-  vertical-align: top;
-  border-top: 1px solid #eaeaec;
-  width: 45%;
-  padding: 5px 30px 10px 15px;
-  display: inline-block;
-  margin-bottom: 30px;
-  & > * {
-    max-width: 480px;
-    width: 100%;
-    display: block;
-    margin: auto;
-    margin-bottom: 20px;
-  }
-  @media (max-width: 768px) {
-    display: block;
-    margin: auto;
-    width: 480px;
-    max-width: 100%;
-  }
-`;
 
 const OffersAndCuppons = styled.div``;
 
@@ -151,34 +100,9 @@ const BaseHeader = styled.div`
 
 const GiftSection = styled.div``;
 
-const PriceDetails = styled.div`
-  & > * {
-    margin: 15px auto;
-  }
-`;
-
-const ToLeft = styled.span``;
-const ToRight = styled.span`
-  float: right;
-  & * {
-    display: inline;
-  }
-`;
-
-const TextLineThrough = styled.span`
-  text-decoration: line-through;
-`;
-
 const SpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const TotalPriceBox = styled.div`
-  font-weight: bold;
-  & * {
-    font-weight: bold;
-  }
 `;
 
 export default RightItemBox;

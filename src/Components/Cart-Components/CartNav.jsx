@@ -8,7 +8,7 @@ const CartNav = () => {
       <Image
         src={"https://compare.buyhatke.com/company/img/myntra_logo.png"}
         alt="Myntra Logo"
-        height="35"
+        height="35px"
       />
       <CheckoutSteps>
         <CheckoutList>BAG</CheckoutList>
@@ -23,7 +23,7 @@ const CartNav = () => {
             "https://constant.myntassets.com/checkout/assets/img/sprite-secure.png"
           }
           alt="Secure Logo"
-          height="28"
+          height="28px"
         />
         <SecureDiv>100% SECURE</SecureDiv>
       </SecureContainer>
