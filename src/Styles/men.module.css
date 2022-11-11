@@ -1,0 +1,94 @@
+
+/* Men page css  */
+
+.menPage{
+    /* color: red; */
+    border: 1px solid red;
+}
+
+.menLocation{
+    /* border: 1px solid green; */
+    height: 35px;
+    width: 90%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+.menCategory{
+    font-size: 17px;
+
+}
+.menProductquantity{
+    color: gray;
+}
+.menFilterAndProducts{
+    border: 1px solid orangered;
+    display: flex;
+    /* margin-top: 1%; */
+
+}
+
+
+/* Filter component css  */
+
+.uniqueFilter{
+    border: 1px solid blue;
+    width: 19%;
+    /* height: 700px; */
+
+}
+
+.filterHead{
+    border: 1px solid purple;
+    margin-left: 29px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+
+.filterCategory{
+    border: 1px solid olivedrab;
+    /* height: 111px; */
+    padding: 20px 0px 15px 29px;
+}
+
+.categoryHead{
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    padding-bottom:10px ;
+}
+
+.categoryItem{
+    border: 1px solid goldenrod;
+    display: flex;
+    align-items: center;
+    margin: 5px 0px 5px 0px ;
+}
+
+
+.categoryItemTitle{
+    margin-left: 10px;
+    font-size: 15px;
+}
+.categoryInput{
+    /* display: inline; */
+    border: 1px solid gray;
+    font-size: 25px;
+     width: 16px;
+     height: 16px;
+
+}
+
+
+
+
+
+
+/* Products component css  */
+
+.uniqueProducts{
+    border: 1px solid brown;
+     width: 81%;
+}
