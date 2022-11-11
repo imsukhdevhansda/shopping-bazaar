@@ -3,8 +3,7 @@ import Logo from "../assets/logo-myntra-41466.png";
 import studio from "../assets/sudio-nav-banner.png"
 import { Link } from "react-router-dom";
 import './Navbar.css';
-import { FaBarcode, 
-    FaBars, 
+import { FaBars, 
     FaHeart, 
     FaShoppingBag, 
     FaUser,
