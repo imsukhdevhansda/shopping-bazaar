@@ -19,6 +19,9 @@ const Cart = () => {
 
 const CartContainer = styled.div`
   font-size: 13px;
+  & svg {
+    display: inline;
+  }
 `;
 
 export default Cart;
