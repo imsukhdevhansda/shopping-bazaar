@@ -6,7 +6,9 @@ import OTPpage from "./Components/Signup/OTPpage";
 
 function App() {
   return <div className="App">
-    
+    {/* <PhoneLogin/> */}
+    {/* <Login/> */}
+    <Signup/>
   </div>;
 }
 
