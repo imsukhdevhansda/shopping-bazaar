@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import {  FiPhone } from 'react-icons/fi'
 import PhoneInput from 'react-phone-input-2'
@@ -14,10 +14,6 @@ import {
 
 const PhoneLogin = () => {
 
-
-
-
-
     const auth = getAuth();
     const user = auth.currentUser;
   
@@ -29,8 +25,6 @@ const PhoneLogin = () => {
   
     const handleInput = (event) => {
       let input = { [event.target.name]: event.target.value };
-  
-      console.log(event.target.value);
       setdata({ ...data, ...input });
     };
   
@@ -61,36 +55,31 @@ const PhoneLogin = () => {
         });
     };
 
-    console.log(OTP)
-  
-    const verfyOTP = (e) => {
-      const otp = e.target.value;
-    //   setOTP(otp);
-    console.log(otp)
-    //   if (otp.length === 6) {
-    //     console.log(otp);
-    //     let confirmationResult = window.confirmationResult;
-    //     confirmationResult
-    //       .confirm(otp)
-    //       .then((result) => {
-    //         const user = result.user;
-    //         console.log(result);
-    //         updateProfile(auth.currentUser, {
-    //           displayName: data.username
-    //         });
 
-    //       })
-    //       .catch((error) => {
-    //         alert(error);
-    //       });
-    //   }
-    };
-  
-    const handleComplete=(e)=>{
-        // setOTP(e.target.value)
-        console.log(e.target)
+    const checkotp=()=>{
+        console.log(OTP)
+
+        
+      if (OTP.length === 6) {
+        console.log(OTP);
+        let confirmationResult = window.confirmationResult;
+        confirmationResult
+          .confirm(OTP)
+          .then((result) => {
+            const user = result.user;
+            console.log(result);
+            updateProfile(auth.currentUser, {
+              displayName: data.username
+            });
+
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      }
+
     }
-
+  
 
   return (
     <div style={{marginTop:"150px"}}>
@@ -106,10 +95,11 @@ const PhoneLogin = () => {
         color="white"
       >
         <Image
-          src="https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2022/9/6/2127ba0a-fa66-43de-83ca-367322d814061662403347124-offer-banner-200-1080x496-code-_-MYNTRA200.jpg"
+          src={otpsec? "https://constant.myntassets.com/pwa/assets/img/al_banner.png":"https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2022/9/6/2127ba0a-fa66-43de-83ca-367322d814061662403347124-offer-banner-200-1080x496-code-_-MYNTRA200.jpg"}
           alt="Dan Abramov"
+          w={otpsec? "90%":"100%"}
         />
-        <Input w="90%" placeholder="Username" onChange={handleInput}  color="black" size="sm" />
+        <Input w="90%" placeholder="Username" name="username" onChange={handleInput}  color="black" size="sm" />
         <PhoneInput
         inputProps={{
           name: "phone",
@@ -148,20 +138,27 @@ const PhoneLogin = () => {
         }}
       />
       {/* value="" onComplete={handleComplete} */}
-        <HStack color="black">
-            <PinInput size='sm' type="number" placeholder="•" onChange={(e)=> setOTP(e)} >
-                <PinInputField  />
-                <PinInputField  />
-                <PinInputField  />
-                <PinInputField  />
-                <PinInputField  />
-                <PinInputField  />
-            </PinInput>
-        </HStack>
-        <Button>Submit</Button>
-        <Button onClick={handleSubmit} borderRadius="0" mb="-5px" pt="18px" pr="90px" pb="18px" pl="90px" size="sm" bg="red.400" fontSize="sm">
+      {otpsec? (<Box><HStack color="black" mb="3">
+         <PinInput size='sm' type="number" placeholder="•" onChange={(e)=> setOTP(e)} >
+               <PinInputField  />
+               <PinInputField  />
+              <PinInputField  />
+              <PinInputField  />
+              <PinInputField  />
+              <PinInputField  />
+         </PinInput>
+         </HStack>
+         <Button onClick={ checkotp } borderRadius="0" mb="-5px" pt="18px" pr="82px" pb="18px" pl="82px" size="sm" bg="red.400" fontSize="sm">
+          Verify OTP
+        </Button>
+         </Box>):(<Box></Box>)
+      }
+        
+        <Button onClick={ handleSubmit } borderRadius="0" mb="-5px" pt="18px" pr="90px" pb="18px" pl="90px" size="sm" bg="red.400" fontSize="sm">
           Get OTP
         </Button>
+        
+
 
         <Button  borderRadius="0" mb="-5px" pt="18px" pr="60px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="60px" size="sm" leftIcon={< FiPhone />}>
            Phone Login 
@@ -171,6 +168,7 @@ const PhoneLogin = () => {
         </Button>
       </Box>
     </Flex>
+    <div id="sign-in-button" />
   </div>
   )
 }
