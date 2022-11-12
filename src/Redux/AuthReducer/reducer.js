@@ -12,9 +12,10 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
+  console.log(payload)
   switch (type) {
-    case "":
-      return { ...state, name: payload };
+    case "EMAIL_LOGIN_SUCCESS":
+      return { ...state, name: payload.displayName, userId: payload.uid };
     default:
       return state;
   }

@@ -9,13 +9,14 @@ import {
   updateProfile
 } from "firebase/auth";
 import { Box, Input, Image, Flex, Button } from "@chakra-ui/react";
-
+import { app, db } from "../../config/firebaseConfig"
+import { doc, setDoc } from "firebase/firestore";
 
 const Signup = () => {
 
   const auth = getAuth();
   const Googleprovider = new GoogleAuthProvider();
-
+  // const collectionRef = collection(database, 'users')
   const [data, setdata] = useState({});
 
   const handleGooglelogin = () => {
@@ -35,7 +36,7 @@ const Signup = () => {
     setdata({ ...data, ...input });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if(data.username!==undefined||""){
       if(data.email!==undefined||""){
         console.log("hi")
@@ -45,6 +46,13 @@ const Signup = () => {
             displayName: data.username
           });
           console.log(res);
+          const docData={
+            address:[],
+            wishlist:[],
+            bag:[],
+            phone:""
+          }
+         setDoc(doc(db, "users", `${res.user.uid}`), docData);
         })
         .catch((err) => alert(err));
       } 
