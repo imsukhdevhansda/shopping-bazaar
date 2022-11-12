@@ -4,7 +4,7 @@ export const CalculateTotal = (array, key) => {
       let total = items[key].split("");
       total.splice(0, 3);
       total = +total.join("").trim();
-      let itemQuantity = items.item_quantity;
+      let itemQuantity = items.item_quantity || 1;
       let itemPrice = total * itemQuantity;
       return itemPrice;
     });

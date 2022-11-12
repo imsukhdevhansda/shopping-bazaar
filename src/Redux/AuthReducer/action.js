@@ -27,3 +27,17 @@ export const addToWishList = (payload) => {
     payload,
   };
 };
+
+export const addToCart = (payload) => {
+  return {
+    type: types.ADD_CART_ITEM,
+    payload,
+  };
+};
+
+export const removeFromWishlist = (payload) => {
+  return {
+    type: types.REMOVE_WISHLIST_ITEM,
+    payload,
+  };
+};
