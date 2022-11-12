@@ -6,6 +6,7 @@ import CartItem from "./CartItem";
 import ConvenienceBox from "./ConvenienceBox";
 import OfferBox from "./OfferBox";
 import { HiOutlineClipboardList } from "react-icons/hi";
+import LeftContentBox from "./LeftContentBox";
 
 const demoCartItem = [
   {
@@ -82,8 +83,8 @@ const demoCartItem = [
   },
   {
     image:
-      "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/14935572/2021/12/2/378b0fd7-9207-47b4-bdc7-05c035a4c73f1638420449785-Roadster-Burgundy-Striped-Gathered-Fitted-Top-82716384204491-1.jpg",
-    brand: "Brand Name (manufacturer)",
+      "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/1376577/2022/6/3/ea10ab6c-883e-437a-8780-ed87484393f81654235830793-Roadster-Men-Black--Grey-Checked-Casual-Sustainable-Shirt-42-1.jpg",
+    brand: "Brand Name (testing)",
     title: "Title Of the Product",
     sold_by: "Sold By (Seller)",
     id: 7,
@@ -96,7 +97,7 @@ const demoCartItem = [
 
 const LeftItemBox = () => {
   return (
-    <Box>
+    <LeftContentBox>
       <AddressBox pinCode={799264} />
       <OfferBox />
       <ConvenienceBox />
@@ -112,31 +113,9 @@ const LeftItemBox = () => {
         <HiOutlineClipboardList />
         <b>Add more from Wishlist</b>
       </AddFromWishList>
-    </Box>
+    </LeftContentBox>
   );
 };
-
-const Box = styled.div`
-  border-top: 1px solid #eaeaec;
-  border-right: 1px solid #eaeaec;
-  width: 55%;
-  display: inline-block;
-  margin-bottom: 30px;
-  padding: 0 20px;
-  & > * {
-    max-width: 600px;
-    width: 100%;
-    margin: 20px 0;
-    margin-left: auto;
-  }
-  @media (max-width: 768px) {
-    border-right: none;
-    display: block;
-    margin: auto;
-    width: 480px;
-    max-width: 100%;
-  }
-`;
 
 const TotalItems = styled.div`
   padding: 16px;

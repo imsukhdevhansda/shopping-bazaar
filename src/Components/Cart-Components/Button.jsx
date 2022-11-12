@@ -12,9 +12,11 @@ const Button = ({
   fweight,
   height,
   width,
+  onClick,
 }) => {
   return (
     <Btn
+      onClick={onClick}
       border={border}
       col={color}
       bgColor={bgColor}

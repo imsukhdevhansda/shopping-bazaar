@@ -1,16 +1,32 @@
 import React from 'react'
 import Logo from "../assets/logo-myntra-41466.png";
+import studio from "../assets/sudio-nav-banner.png"
 import { Link } from "react-router-dom";
 import './Navbar.css';
-import "./all.css";
+import { FaBars, 
+    FaHeart, 
+    FaShoppingBag, 
+    FaUser,
+    FaSearch
+ } from 'react-icons/fa';
+
+ 
+// import "../assets/all.css";
+
 
 const Navbar = () => {
   return (
     <div className="header">
+        
         <div className="container">
             <div className='row v-center'>
                 <div className='header-item item-left'>
                      <div className='logo'>
+                        <input type="checkbox" id="check" />
+                        <label for="check">
+                            <FaBars/>
+                         
+                        </label>
                         <img src={Logo} alt="logo" className="logo_img" />
                      </div>
                 </div>
@@ -20,7 +36,7 @@ const Navbar = () => {
                        <ul>
                            <li className='menu-item-has-children'>
                                <Link to='/men' className="">MEN</Link>
-                               <div className='sub-menu mega-menu-column-5'>
+                               <div className='sub-menu mega-menu mega-menu-column-5'>
                                 <div className='list-item'>
                                     <h4 className='title'>Topwear</h4>
                                     <ul>
@@ -131,7 +147,7 @@ const Navbar = () => {
                            </li>
                            <li className='menu-item-has-children'>
                                <Link to='/women' className="">WOMEN </Link>
-                               <div className='sub-menu mega-menu-column-5'>
+                               <div className='sub-menu mega-menu mega-menu-column-5'>
                                <div className='list-item'>
                                     <h4 className='title'>Topwear</h4>
                                     <ul>
@@ -242,7 +258,7 @@ const Navbar = () => {
 
                            <li className='menu-item-has-children'>
                                <Link to='/kids' className="">KIDS</Link>
-                               <div className='sub-menu mega-menu-column-5'>
+                               <div className='sub-menu mega-menu mega-menu-column-5'>
                                <div className='list-item'>
                                     <h4 className='title'>Topwear</h4>
                                     <ul>
@@ -353,7 +369,7 @@ const Navbar = () => {
 
                            <li className='menu-item-has-children'>
                                <Link to='/homeandliving' className="">HOME & LIVING</Link>
-                               <div className='sub-menu mega-menu-column-5'>
+                               <div className='sub-menu mega-menu mega-menu-column-5'>
                                <div className='list-item'>
                                     <h4 className='title'>Topwear</h4>
                                     <ul>
@@ -462,7 +478,7 @@ const Navbar = () => {
                            </li>
                            <li className='menu-item-has-children'>
                                <Link to='/beuty' className="">BEAUTY</Link>
-                               <div className='sub-menu mega-menu-column-5'>
+                               <div className='sub-menu mega-menu mega-menu-column-5'>
                                <div className='list-item'>
                                     <h4 className='title'>Topwear</h4>
                                     <ul>
@@ -571,12 +587,14 @@ const Navbar = () => {
                            </li>
                            <li className='menu-item-has-children'>
                                <Link to='/studio' className="">STUDIO</Link>
-                               <div className='sub-menu single-column-menu'>
-                                <ul>
-                                    <li><Link>Standard Layout</Link></li>
-                                    <li><Link>Grid Layout</Link></li>
-                                    <li><Link>Single Layout</Link></li>
-                                </ul>
+                               <div className='sub-menu mega-menu mega-menu-column-1'>
+                                <div className='list-item-st'>
+                                    <h3>Studio</h3>
+                                    <img src={studio} alt="studio img" /><br />
+                                    <button>Explore More</button>
+                                </div>
+                                
+                                    
                                </div>
                            </li>
                        </ul>
@@ -585,15 +603,15 @@ const Navbar = () => {
                     </nav>
                 </div>
                 {/* Menu ends here */}
-                <button><Link><i className='fas fa-search'></i></Link></button>
+                <button><Link><FaSearch/></Link></button>
                 <input placeholder='Search for product,brand and more'  className='search-bar'/>
 
                 <div className='header-item item-right'>
                                         
 
-                        <Link to=""><i className='fa-solid fa-user'></i></Link>
-                        <Link to=""><i className='far fa-heart'></i></Link>
-                        <Link to=""><i className='fas fa-shopping-bag'></i></Link>
+                        <Link to=""><FaUser/></Link>
+                        <Link to=""><FaHeart/></Link>
+                        <Link to=""><FaShoppingBag/></Link>
                 </div>
 
             </div>
