@@ -3,6 +3,8 @@ import { FcGoogle } from 'react-icons/fc'
 import {  FiPhone } from 'react-icons/fi'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { app, db } from "../../config/firebaseConfig"
+import { doc, setDoc } from "firebase/firestore";
 import { Box, Input, Image, Flex, Button, HStack, PinInput, PinInputField } from "@chakra-ui/react";
 import {
     getAuth,
@@ -57,20 +59,25 @@ const PhoneLogin = () => {
 
 
     const checkotp=()=>{
-        console.log(OTP)
-
-        
+   
       if (OTP.length === 6) {
         console.log(OTP);
         let confirmationResult = window.confirmationResult;
         confirmationResult
           .confirm(OTP)
-          .then((result) => {
-            const user = result.user;
-            console.log(result);
+          .then((res) => {
+            const user = res.user;
+            console.log(res);
             updateProfile(auth.currentUser, {
               displayName: data.username
             });
+            const docData={
+              address:[],
+              wishlist:[],
+              bag:[],
+              phone:res.user.phoneNumber
+            }
+           setDoc(doc(db, "users", `${res.user.uid}`), docData);
 
           })
           .catch((error) => {
@@ -140,8 +147,8 @@ const PhoneLogin = () => {
       {/* value="" onComplete={handleComplete} */}
       {otpsec? (<Box><HStack color="black" mb="3">
          <PinInput size='sm' type="number" placeholder="•" onChange={(e)=> setOTP(e)} >
-               <PinInputField  />
-               <PinInputField  />
+              <PinInputField  />
+              <PinInputField  />
               <PinInputField  />
               <PinInputField  />
               <PinInputField  />
