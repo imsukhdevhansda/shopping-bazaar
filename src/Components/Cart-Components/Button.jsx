@@ -13,6 +13,7 @@ const Button = ({
   height,
   width,
   onClick,
+  children,
 }) => {
   return (
     <Btn
@@ -27,7 +28,7 @@ const Button = ({
       height={height}
       width={width}
     >
-      {text}
+      {children || text}
     </Btn>
   );
 };

@@ -6,7 +6,7 @@ import LeftItemBox from "../Components/Cart-Components/LeftItemBox";
 import RightItemBox from "../Components/Cart-Components/RightItemBox";
 
 const Cart = () => {
-  const user = useSelector((store) => console.log(store)); //For testing
+  // const user = useSelector((store) => console.log(store)); //For testing
   return (
     <CartContainer>
       <CartNav />

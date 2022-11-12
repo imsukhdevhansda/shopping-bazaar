@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import {
   BaseHeader,
@@ -8,20 +10,35 @@ import {
   Text,
   TotalPriceBox,
 } from "./StyledComponents";
+import { CalculateTotal } from "./TotalCalculator";
 
 const PriceDetails = () => {
+  const [totalMrp, setTotalMrp] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const cartItems = useSelector((store) => store.AuthReducer.cart);
+  console.log("cartItems:", cartItems);
+  const maxPrice = CalculateTotal(cartItems, "product_strike");
+  const actualAmount = CalculateTotal(cartItems, "product_discountedPrice");
+  useEffect(() => {
+    console.log("runnign");
+    setTotalMrp(maxPrice);
+    setTotalAmount(actualAmount);
+  });
+
   return (
     <PriceDetailsBox>
       <>
-        <BaseHeader>Price Details (5 Items)</BaseHeader>
+        <BaseHeader>Price Details ({cartItems.length} Items)</BaseHeader>
         <div>
           <ToLeft>Total MRP</ToLeft>
-          <ToRight>₹ 9854</ToRight>
+          <ToRight>₹ {totalMrp}</ToRight>
         </div>
         <div>
           <ToLeft>Discount on MRP</ToLeft>
           <ToRight>
-            <Text color="green">-₹ 3650</Text>
+            <Text color="green">
+              -₹ {maxPrice && actualAmount && maxPrice - actualAmount}
+            </Text>
           </ToRight>
         </div>
         <div>
@@ -43,7 +60,7 @@ const PriceDetails = () => {
       <hr />
       <TotalPriceBox>
         <ToLeft>Total Amount</ToLeft>
-        <ToRight>9854</ToRight>
+        <ToRight>{totalAmount}</ToRight>
       </TotalPriceBox>
     </PriceDetailsBox>
   );
