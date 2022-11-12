@@ -23,7 +23,7 @@
     color: gray;
 }
 .menFilterAndProducts{
-    border: 1px solid orangered;
+    /* border: 1px solid orangered; */
     display: flex;
     /* margin-top: 1%; */
 
@@ -33,24 +33,29 @@
 /* Filter component css  */
 
 .uniqueFilter{
-    border: 1px solid blue;
+    /* border: 1px solid blue;   */
     width: 19%;
     /* height: 700px; */
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
 
 }
 
 .filterHead{
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     margin-left: 29px;
     padding-top: 17px;
-    padding-bottom: 17px;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    padding-bottom:10px ;
 }
 
 
 .filterCategory{
-    border: 1px solid olivedrab;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     /* height: 111px; */
     padding: 20px 0px 15px 29px;
+    margin-bottom: 2px;
 }
 
 .categoryHead{
@@ -61,7 +66,7 @@
 }
 
 .categoryItem{
-    border: 1px solid goldenrod;
+    /* border: 1px solid goldenrod; */
     display: flex;
     align-items: center;
     margin: 5px 0px 5px 0px ;
@@ -73,15 +78,44 @@
     font-size: 15px;
 }
 .categoryInput{
-    /* display: inline; */
-    border: 1px solid gray;
     font-size: 25px;
      width: 16px;
      height: 16px;
+     cursor: pointer;
 
 }
 
+.categoryColor{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+   
 
+
+}
+.bgColorBlack{
+    background-color: black;
+}
+.bgColorBlue{
+    background-color: blue;
+}
+.bgColorWhite{
+    background-color: white;
+    border: 1px solid grey;
+}
+.bgColorNavy{
+    background-color: navy;
+}
+.bgColorGreen{
+    background-color: green;
+}
+.bgColorRed{
+    background-color: red;
+}
+.bgColorGrey{
+    background-color: grey;
+}
 
 
 
@@ -92,3 +126,89 @@
     border: 1px solid brown;
      width: 81%;
 }
+.productSort{
+    border: 1px solid orange;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.productSort1{
+      /* border: 1px solid red; */
+      width: 21rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+
+}
+
+.productSortOption{
+    /* border: 1px solid blue; */
+    display: flex;
+    /* width: 95px; */
+    height: 26px;
+    align-items: center;
+    padding: 5px 5px 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.productSortOption :nth-child(1){
+    font-size: 15px;
+}
+
+.productSort2{
+      /* border: 1px solid blueviolet; */
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+      width: 255px;
+      height: 36px;
+      margin-right: 25px;
+      /* padding: 5px 5px 5px 10px; */
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+}
+.productSort2SortBy{
+    font-size: 15px;
+    margin-left: 12px;
+}
+.productSort2Recomm{
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.productSort2Parent{
+    /* border: 2px black dotted; */
+ /* display: inline-block; */
+}
+.productSort2Options{
+     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    /* border: 1px solid red; */
+      width: 255px;
+      position: absolute;
+    /* visibility: hidden; */
+
+}
+.productSort2Select{
+    /* border: 1px solid orangered; */
+    font-size: 15px;
+    height: 35px;
+    background-color: white;
+    padding: 5px 0px 5px 13px ;
+    cursor: pointer;
+
+}
+/* .productSort2Select :hover{
+    background-color: #f5f5f6;
+    background-color: red;
+    
+} */
+
+/* .productSort2 :hover  { */
+     /* display: block;
+    position: absolute; */
+    /* background-color: rebeccapurple; */
+    /* visibility: visible; */
+/* } */

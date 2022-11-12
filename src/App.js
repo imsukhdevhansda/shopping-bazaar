@@ -8,6 +8,7 @@ function App() {
     {/* <Footer/> */}
     {/* <Home/> */}
   </div>;
+
 }
 
 export default App;
