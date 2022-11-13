@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { MdKeyboardArrowRight, MdLocalOffer } from "react-icons/md";
 import { TbDiscount2 } from "react-icons/tb";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 import PriceDetails from "./PriceDetails";
 import RightContentBox from "./RightContentBox";
@@ -52,15 +53,17 @@ const RightItemBox = () => {
       <PriceDetails />
 
       <div>
-        <Button
-          color={"white"}
-          border="none"
-          width={"100%"}
-          text="PLACE ORDER"
-          padding={"7px"}
-          fsize="14px"
-          bgColor={"rgb(255 63 108)"}
-        />
+        <Link to={"/address"}>
+          <Button
+            color={"white"}
+            border="none"
+            width={"100%"}
+            text="PLACE ORDER"
+            padding={"7px"}
+            fsize="14px"
+            bgColor={"rgb(255 63 108)"}
+          />
+        </Link>
       </div>
     </RightContentBox>
   );

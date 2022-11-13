@@ -1,6 +1,12 @@
 
 /* Men page css  */
 
+.singleProductLink{
+    text-decoration: none;
+    color: black;
+}
+
+
 .menPage{
     /* color: red; */
     border: 1px solid red;
@@ -287,3 +293,5 @@ color: grey;
     color: #FF905A;
 
 }
+
+

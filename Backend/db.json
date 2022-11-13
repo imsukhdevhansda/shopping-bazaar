@@ -1,7 +1,7 @@
 {
   "men_products": [
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "19.7k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-black-cotton-pure-cotton-t-shirt/1996777/buy",
@@ -27,7 +27,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4,
+      "product_ratingsContainer": 4,
       "product_ratingsCount": "8.7k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/urbano-fashion/urbano-fashion-men-teal-green-slim-fit-tropical-printed-pure-cotton-t-shirt/12377258/buy",
@@ -53,7 +53,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "48.5k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-teal-blue-printed-pure-cotton-t-shirt/1700871/buy",
@@ -79,7 +79,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4,
+      "product_ratingsContainer": 4,
       "product_ratingsCount": "12.2k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/huetrap/huetrap-men-beige--black-typography-printed-sustainable-t-shirt/11148764/buy",
@@ -105,7 +105,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "28.5k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-white--pure-cotton-t-shirt/2275365/buy",
@@ -131,7 +131,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4,
+      "product_ratingsContainer": 4,
       "product_ratingsCount": 64,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/peppyzone/peppyzone-men-black-colourblocked-polo-collar-t-shirt/20106530/buy",
@@ -157,7 +157,7 @@
       "product_sizeButton_6": "XXL"
     },
     {
-      "product-ratingsContainer": 3.7,
+      "product_ratingsContainer": 3.7,
       "product_ratingsCount": "25.3k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/moda-rapido/moda-rapido-men-maroon-printed-cotton-pure-cotton-t-shirt/2378362/buy",
@@ -183,7 +183,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.1,
+      "product_ratingsContainer": 4.1,
       "product_ratingsCount": "2.2k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/difference-of-opinion/difference-of-opinion-men-mint-green-round-neck-drop-shoulder-sleeves-cotton-loose-t-shirt/16407468/buy",
@@ -209,7 +209,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "19.4k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-black-pure-cotton-t-shirt/9793511/buy",
@@ -235,7 +235,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.6,
+      "product_ratingsContainer": 4.6,
       "product_ratingsCount": "1.1k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe/louis-philippe-men-navy-blue-polo-collar-t-shirt/14047672/buy",
@@ -261,7 +261,7 @@
       "product_sizeButton_6": "3XL"
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "7.4k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-white-rapid-dry-camo-training-t-shirt/5842076/buy",
@@ -287,7 +287,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": "",
+      "product_ratingsContainer": "",
       "product_ratingsCount": "",
       "product-separator": "",
       "product-base href": "https://www.myntra.com/tshirts/peppyzone/peppyzone-men-olive-green--khaki-camouflage-printed-cotton-t-shirt/20474234/buy",
@@ -313,7 +313,7 @@
       "product_sizeButton_6": "XXL"
     },
     {
-      "product-ratingsContainer": 3.8,
+      "product_ratingsContainer": 3.8,
       "product_ratingsCount": 500,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe-sport/louis-philippe-sport-men-maroon-solid-polo-collar-t-shirt/18221376/buy",
@@ -339,7 +339,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "23.6k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-charcoal-melange-graphic-printed-t-shirt/1072681/buy",
@@ -365,7 +365,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "9.8k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-black-raglan-sleeved-t-shirt/1987412/buy",
@@ -391,7 +391,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "1.2k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/wrogn-active/wrogn-active-men-black-self-design-mock-collar-t-shirt/11551944/buy",
@@ -417,7 +417,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": 91,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/us-polo-assn/u-s-polo-assn-men-blue-polo-collar-t-shirt/14678596/buy",
@@ -443,7 +443,7 @@
       "product_sizeButton_6": "3XL"
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": 5,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/the-souled-store/the-souled-store-men-navy-blue-psg-messi-back-print-oversized-t-shirt/20059494/buy",
@@ -469,7 +469,7 @@
       "product_sizeButton_6": "XXL"
     },
     {
-      "product-ratingsContainer": 4.4,
+      "product_ratingsContainer": 4.4,
       "product_ratingsCount": "1.6k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hm/hm-men-green-solid-regular-fit-round-neck-t-shirt/16590968/buy",
@@ -495,7 +495,7 @@
       "product_sizeButton_6": "XXL"
     },
     {
-      "product-ratingsContainer": 4.5,
+      "product_ratingsContainer": 4.5,
       "product_ratingsCount": "1.2k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe/louis-philippe-men-black-polo-collar-t-shirt/14047664/buy",
@@ -521,7 +521,7 @@
       "product_sizeButton_6": "3XL"
     },
     {
-      "product-ratingsContainer": 3.9,
+      "product_ratingsContainer": 3.9,
       "product_ratingsCount": "7.8k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-black-solid-round-neck-pure-cotton-t-shirt/10941384/buy",
@@ -547,7 +547,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": 530,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe-jeans/louis-philippe-jeans-men-navy-blue-solid-pure-cotton-t-shirt/15203022/buy",
@@ -573,7 +573,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": 368,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe-sport/louis-philippe-sport-men-white-solid-polo-collar-t-shirt/18221394/buy",
@@ -599,7 +599,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": "",
+      "product_ratingsContainer": "",
       "product_ratingsCount": "",
       "product-separator": "",
       "product-base href": "https://www.myntra.com/tshirts/breakbounce/breakbounce-men-black--white-typography-printed-pure-cotton-t-shirt/20399314/buy",
@@ -625,7 +625,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "4.1k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-green-solid-round-neck-t-shirt/2275369/buy",
@@ -651,7 +651,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "3.8k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-black-raglan-sleeved-active-t-shirt/1411086/buy",
@@ -677,7 +677,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 3.7,
+      "product_ratingsContainer": 3.7,
       "product_ratingsCount": "18k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/campus-sutra/campus-sutra-men-blue-colourblocked-cotton-pure-cotton-t-shirt/10016983/buy",
@@ -703,7 +703,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "12.1k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/dillinger/dillinger-men-navy-blue--red-striped-cotton-pure-cotton-t-shirt/11067734/buy",
@@ -729,7 +729,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4,
+      "product_ratingsContainer": 4,
       "product_ratingsCount": "4.2k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/huetrap/huetrap-men-white-graphic-printed-cotton-t-shirt/1967371/buy",
@@ -755,7 +755,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.5,
+      "product_ratingsContainer": 4.5,
       "product_ratingsCount": 25,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/american-eagle-outfitters/american-eagle-outfitters-men-burgundy--off-white-standard-fit-brand-logo-cotton-t-shirt/19612720/buy",
@@ -781,7 +781,7 @@
       "product_sizeButton_6": "XXL"
     },
     {
-      "product-ratingsContainer": 4.5,
+      "product_ratingsContainer": 4.5,
       "product_ratingsCount": 175,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe-sport/louis-philippe-sport-men-blue-solid-polo-collar-t-shirt/18221306/buy",
@@ -807,7 +807,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "3.7k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/herenow/herenow-men-maroon--black-pure-cotton-printed-round-neck-pure-cotton-t-shirt/12816880/buy",
@@ -833,7 +833,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": 947,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/dillinger/dillinger-men-black--purple-typography-printed-pure-cotton-loose-oversized-t-shirt/17240500/buy",
@@ -859,7 +859,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 3.9,
+      "product_ratingsContainer": 3.9,
       "product_ratingsCount": "4.2k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-grey-melange-solid-round-neck-t-shirt/12120770/buy",
@@ -885,7 +885,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.1,
+      "product_ratingsContainer": 4.1,
       "product_ratingsCount": "4.9k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-white-athleisure-cotton-pure-cotton-t-shirt/6825469/buy",
@@ -911,7 +911,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "9.5k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/moda-rapido/moda-rapido-men-maroon-colourblocked-cotton-t-shirt/2221318/buy",
@@ -937,7 +937,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "1.1k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/chkokko/chkokko-men-black-solid-high-neck-t-shirt/10481292/buy",
@@ -963,7 +963,7 @@
       "product_sizeButton_6": "4XL"
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "2.3k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/jockey/jockey-men-white-super-combed-cotton-t-shirt/11443762/buy",
@@ -989,7 +989,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "1.1k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/dillinger/dillinger-men-black-typography-printed-pure-cotton-loose-oversized-t-shirt/17240498/buy",
@@ -1015,7 +1015,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": 961,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-charcoal-grey-printed-round-neck-pure-cotton-t-shirt/12251170/buy",
@@ -1041,7 +1041,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": 464,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/wrogn-active/wrogn-active-men-navy-blue-solid-mandarin-collar-t-shirt/11551942/buy",
@@ -1067,7 +1067,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.1,
+      "product_ratingsContainer": 4.1,
       "product_ratingsCount": "7.1k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/campus-sutra/campus-sutra-men-grey-printed-cotton-pure-cotton-t-shirt/10017085/buy",
@@ -1093,7 +1093,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4,
+      "product_ratingsContainer": 4,
       "product_ratingsCount": "23.8k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-maroon-typography-printed-cotton-t-shirt/2308267/buy",
@@ -1119,7 +1119,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.4,
+      "product_ratingsContainer": 4.4,
       "product_ratingsCount": 289,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/louis-philippe-jeans/louis-philippe-jeans-men-olive-green-brand-logo-printed-slim-fit-pure-cotton-t-shirt/16878834/buy",
@@ -1145,7 +1145,7 @@
       "product_sizeButton_6": "3XL"
     },
     {
-      "product-ratingsContainer": 4.4,
+      "product_ratingsContainer": 4.4,
       "product_ratingsCount": 438,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/us-polo-assn-denim-co/us-polo-assn-denim-co-men-mustard-yellow-printed-polo-collar-pure-cotton-t-shirt/13623926/buy",
@@ -1171,7 +1171,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": "",
+      "product_ratingsContainer": "",
       "product_ratingsCount": "",
       "product-separator": "",
       "product-base href": "https://www.myntra.com/tshirts/veirdo/veirdo-men-purple-printed-raw-edge-loose-t-shirt/20236884/buy",
@@ -1197,7 +1197,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.3,
+      "product_ratingsContainer": 4.3,
       "product_ratingsCount": "59.8k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-yellow-printed-cotton-pure-cotton-t-shirt/1700944/buy",
@@ -1223,7 +1223,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 3.9,
+      "product_ratingsContainer": 3.9,
       "product_ratingsCount": "8.6k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/roadster/roadster-men-grey-melange-longline-t-shirt-with-raw-edges/1824340/buy",
@@ -1249,7 +1249,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": 521,
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hm/hm-men-black-regular-fit-cotton-t-shirt/16849336/buy",
@@ -1275,7 +1275,7 @@
       "product_sizeButton_6": ""
     },
     {
-      "product-ratingsContainer": 4.2,
+      "product_ratingsContainer": 4.2,
       "product_ratingsCount": "6.4k",
       "product-separator": "|",
       "product-base href": "https://www.myntra.com/tshirts/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-black-printed-pure-cotton-t-shirt/1700951/buy",

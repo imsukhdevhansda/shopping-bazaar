@@ -24,7 +24,7 @@ initialState.cart.map((items) => (items["id"] = items.product_base_href));
 
 export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-  console.log(payload)
+  // console.log(payload)
   switch (type) {
     case types.REMOVE_CART_ITEM:
       const updatedCart = state.cart.filter(
@@ -67,7 +67,21 @@ export const reducer = (state = initialState, action) => {
 
     case types.MAKE_CART_EMPTY:
       return { ...state, cart: [] };
-      
+
+    case types.UPDATE_ADDRESS:
+      const { name, mobile, pincode, locality, city, state_ut } = payload;
+      return {
+        ...state,
+        name: name,
+        mobile_number: mobile,
+        address: {
+          pincode: pincode,
+          locality: locality,
+          city: city,
+          state: state_ut,
+        },
+      };
+
     case "EMAIL_LOGIN_SUCCESS":
       return { ...state, name: payload.displayName, userId: payload.uid };
     default:
