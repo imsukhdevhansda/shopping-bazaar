@@ -1,625 +1,146 @@
-import React from 'react'
-import Logo from "../assets/logo-myntra-41466.png";
-import studio from "../assets/sudio-nav-banner.png"
+import React from "react";
+import Logo from "../assets/logo-myntra.png";
 import { Link } from "react-router-dom";
-import './Navbar.css';
-import { FaBars, 
-    FaHeart, 
-    FaShoppingBag, 
-    FaUser,
-    FaSearch
- } from 'react-icons/fa';
-
- 
-// import "../assets/all.css";
-
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  ChakraProvider,
+  Flex,
+  IconButton,
+  Image,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
+// import "./Navbar.js"
+import "./Navbar.css";
+import { FaSearch } from "react-icons/fa";
+import CenterItemsNavbar from "./CenterItemsNavbar";
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { BiHeart } from "react-icons/bi";
+import { GrUser } from "react-icons/gr";
+import { GoThreeBars } from "react-icons/go";
+import NavbarIcons from "./NavbarIcons";
+// import "../assets/a ll.css";
 
 const Navbar = () => {
   return (
-    <div className="header">
-        
-        <div className="container">
-            <div className='row v-center'>
-                <div className='header-item item-left'>
-                     <div className='logo'>
-                        <input type="checkbox" id="check" />
-                        <label for="check">
-                            <FaBars/>
-                         
-                        </label>
-                        <img src={Logo} alt="logo" className="logo_img" />
-                     </div>
+    <ChakraProvider>
+      <Flex
+        h={"75px"}
+        justifyContent={"space-around"}
+        alignItems="center"
+        gap="25px"
+        className="header"
+      >
+        <Menu>
+          <MenuButton
+            display={{ lg: "none", base: "block" }}
+               ml='10px'                    
+            as={IconButton}
+            aria-label="Options"
+            icon={<GoThreeBars style={{display:'block' ,margin:'auto'}} />}
+            variant="outline"
+          />
+          <MenuList listStyleType="none">
+            <MenuItem>
+              <NavbarIcons />
+            </MenuItem>
+            <MenuItem>
+              <li className="menu-item-has-children">
+                <Link to="/men" className="">
+                  MEN
+                </Link>
+              </li>
+            </MenuItem>
+
+            <MenuItem>
+              <li className="menu-item-has-children">
+                <Link to="/women" className="">
+                  Women
+                </Link>{" "}
+              </li>
+            </MenuItem>
+            <MenuItem>
+              <li className="menu-item-has-children">
+                <Link to="/kids" className="">
+                  Kids
+                </Link>{" "}
+              </li>
+            </MenuItem>
+            <MenuItem>
+              <li className="menu-item-has-children">
+                <Link to="/homeandliving" className="">
+                  Homes & Living
+                </Link>{" "}
+              </li>
+            </MenuItem>
+            <MenuItem></MenuItem>
+            <MenuItem>
+              <li className="menu-item-has-children">
+                <Link to="/beauty" className="">
+                  Beauty
+                </Link>{" "}
+              </li>
+            </MenuItem>
+            <MenuItem>
+              <li className="menu-item-has-children">
+                <Link to="/studio" className="">
+                  Studio
+                </Link>
+              </li>
+            </MenuItem>
+          </MenuList>
+        </Menu>
+        {/* <div className="container"> */}
+        {/* <div className="row v-center"> */}
+        {/* <div className="header-item item-left"> */}
+        {/* Mobile Mmenu Trigger */}
+
+        {/* <div className="logo">
+              
+                <div className="mobile-menu-trigger">
+                  <span></span>
                 </div>
-                {/* Menu Start here */}
-                <div className='header-item item-center'>
-                    <nav className='menu'>
-                       <ul>
-                           <li className='menu-item-has-children'>
-                               <Link to='/men' className="">MEN</Link>
-                               <div className='sub-menu mega-menu mega-menu-column-5'>
-                                <div className='list-item'>
-                                    <h4 className='title'>Topwear</h4>
-                                    <ul>
-                                        <li><Link>T-Shirts</Link></li>
-                                        <li><Link>Casual Shirts</Link></li>
-                                        <li><Link>Formal Shirts</Link></li>
-                                        <li><Link>Sweatshirts</Link></li>
-                                        <li><Link>Sweaters</Link></li>
-                                        <li><Link>Jackets</Link></li>
-                                        <li><Link>Blazers & Coats</Link></li>
-                                        <li><Link>Suits</Link></li>
-                                        <li><Link>Rain Jackets</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Indian & Festive Wear</h4>
-                                    <ul>
-                                        <li><Link>Kurtas & Kurta Sets </Link></li>
-                                        <li><Link>Sherwanis</Link></li>
-                                        <li><Link>Nehru jackets</Link></li>
-                                        <li><Link>Dhotis</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Bottomwear</h4>
-                                    <ul>
-                                        <li><Link>Jeans</Link></li>
-                                        <li><Link>Casual Trousers</Link></li>
-                                        <li><Link>Formal Trousers</Link></li>
-                                        <li><Link>Shorts</Link></li>
-                                        <li><Link>Track Pants & Joggers</Link></li>
-                                        <li><Link>Jackets</Link></li>                                       
-                                    </ul>
-                                    <h4 className='title'>Indian & Sleep Wear</h4>
-                                    <ul>
-                                        <li><Link>Briefs & Trunks </Link></li>
-                                        <li><Link>Boxers</Link></li>
-                                        <li><Link>Vests</Link></li>
-                                        <li><Link>Sleepwears & Loungewears</Link></li>
-                                        <li><Link>Thermals</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Plus Sizes</h4>
-                                </div>
+                
+              </div> */}
+        <Image src={Logo} alt="logo image" pl={"20px"} w="65px" />
+        {/* </div> */}
+        {/* Menu Start here */}
+        <CenterItemsNavbar />
+        {/* Menu ends here */}
 
-                                <div className='list-item'>
-                                    <h4 className='title'>Footwear</h4>
-                                    <ul>
-                                       
-                                        <li><Link>Casual Shoes</Link></li>
-                                        <li><Link>Formal Shoes</Link></li>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sneakers</Link></li>
-                                        <li><Link>Sandals & Flotters</Link></li>
-                                        <li><Link>Flip Flops</Link></li>
-                                        <li><Link>Socks</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Personal Care & Groomings</h4>
-                                    <h4 className='title'>Sunglasses & Frames</h4>
-                                    <h4 className='title'>Watches</h4>
-                                    
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Sports and Active wear</h4>
-                                    <ul>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sports Sandals</Link></li>
-                                        <li><Link>Active T-Shirts</Link></li>
-                                        <li><Link>Track Pants & Shorts</Link></li>
-                                        <li><Link>Tracksuits</Link></li>
-                                        <li><Link>Jackets & Sweatshirts</Link></li>
-                                        <li><Link>Sports Accessories</Link></li>
-                                        <li><Link>Swimwears</Link></li>
-                                       
-                                    </ul>
-                                    <h4 className='title'>Gadgets</h4>
-                                    <ul>
-                                        <li><Link>Smart Wearables</Link></li>
-                                        <li><Link>Fitness Gadgets</Link></li>
-                                        <li><Link>Headphones</Link></li>
-                                        <li><Link>Speakers</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                <h4 className='title'>Fashion Accessories</h4>
-                                <ul>
-                                        <li><Link>Wallets</Link></li>
-                                        <li><Link>Belts</Link></li>
-                                        <li><Link>Perfumes & Body Mist</Link></li>
-                                        <li><Link>Trimmers</Link></li>
-                                        <li><Link>Deodrants</Link></li>
-                                        <li><Link>Ties, Cufflinks & Pockets Squares</Link></li>
-                                        <li><Link>Accessories Gift Sets</Link></li>
-                                        <li><Link>Caps & Hats</Link></li>
-                                        <li><Link>Mufflers, Scaves & Gloves</Link></li>
-                                        <li><Link>Phone Cases</Link></li>
-                                        <li><Link>Rings & Wristwears</Link></li>
-                                        <li><Link>Helmets</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Bags & Bagpacks</h4>
-                                    <ul>
-                                        <li><Link>Luggages & Trolleys</Link></li>
-                                                                              
-                                    </ul>
-                                </div>                     
-
-                               </div>
-                               
-                           </li>
-                           <li className='menu-item-has-children'>
-                               <Link to='/women' className="">WOMEN </Link>
-                               <div className='sub-menu mega-menu mega-menu-column-5'>
-                               <div className='list-item'>
-                                    <h4 className='title'>Topwear</h4>
-                                    <ul>
-                                        <li><Link>T-Shirts</Link></li>
-                                        <li><Link>Casual Shirts</Link></li>
-                                        <li><Link>Formal Shirts</Link></li>
-                                        <li><Link>Sweatshirts</Link></li>
-                                        <li><Link>Sweaters</Link></li>
-                                        <li><Link>Jackets</Link></li>
-                                        <li><Link>Blazers & Coats</Link></li>
-                                        <li><Link>Suits</Link></li>
-                                        <li><Link>Rain Jackets</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Indian & Festive Wear</h4>
-                                    <ul>
-                                        <li><Link>Kurtas & Kurta Sets </Link></li>
-                                        <li><Link>Sherwanis</Link></li>
-                                        <li><Link>Nehru jackets</Link></li>
-                                        <li><Link>Dhotis</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Bottomwear</h4>
-                                    <ul>
-                                        <li><Link>Jeans</Link></li>
-                                        <li><Link>Casual Trousers</Link></li>
-                                        <li><Link>Formal Trousers</Link></li>
-                                        <li><Link>Shorts</Link></li>
-                                        <li><Link>Track Pants & Joggers</Link></li>
-                                        <li><Link>Jackets</Link></li>                                       
-                                    </ul>
-                                    <h4 className='title'>Indian & Sleep Wear</h4>
-                                    <ul>
-                                        <li><Link>Briefs & Trunks </Link></li>
-                                        <li><Link>Boxers</Link></li>
-                                        <li><Link>Vests</Link></li>
-                                        <li><Link>Sleepwears & Loungewears</Link></li>
-                                        <li><Link>Thermals</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Plus Sizes</h4>
-                                </div>
-
-                                <div className='list-item'>
-                                    <h4 className='title'>Footwear</h4>
-                                    <ul>
-                                       
-                                        <li><Link>Casual Shoes</Link></li>
-                                        <li><Link>Formal Shoes</Link></li>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sneakers</Link></li>
-                                        <li><Link>Sandals & Flotters</Link></li>
-                                        <li><Link>Flip Flops</Link></li>
-                                        <li><Link>Socks</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Personal Care & Groomings</h4>
-                                    <h4 className='title'>Sunglasses & Frames</h4>
-                                    <h4 className='title'>Watches</h4>
-                                    
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Sports and Active wear</h4>
-                                    <ul>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sports Sandals</Link></li>
-                                        <li><Link>Active T-Shirts</Link></li>
-                                        <li><Link>Track Pants & Shorts</Link></li>
-                                        <li><Link>Tracksuits</Link></li>
-                                        <li><Link>Jackets & Sweatshirts</Link></li>
-                                        <li><Link>Sports Accessories</Link></li>
-                                        <li><Link>Swimwears</Link></li>
-                                       
-                                    </ul>
-                                    <h4 className='title'>Gadgets</h4>
-                                    <ul>
-                                        <li><Link>Smart Wearables</Link></li>
-                                        <li><Link>Fitness Gadgets</Link></li>
-                                        <li><Link>Headphones</Link></li>
-                                        <li><Link>Speakers</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                <h4 className='title'>Fashion Accessories</h4>
-                                <ul>
-                                        <li><Link>Wallets</Link></li>
-                                        <li><Link>Belts</Link></li>
-                                        <li><Link>Perfumes & Body Mist</Link></li>
-                                        <li><Link>Trimmers</Link></li>
-                                        <li><Link>Deodrants</Link></li>
-                                        <li><Link>Ties, Cufflinks & Pockets Squares</Link></li>
-                                        <li><Link>Accessories Gift Sets</Link></li>
-                                        <li><Link>Caps & Hats</Link></li>
-                                        <li><Link>Mufflers, Scaves & Gloves</Link></li>
-                                        <li><Link>Phone Cases</Link></li>
-                                        <li><Link>Rings & Wristwears</Link></li>
-                                        <li><Link>Helmets</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Bags & Bagpacks</h4>
-                                    <ul>
-                                        <li><Link>Luggages & Trolleys</Link></li>                                                                              
-                                    </ul>
-                                </div>              
-
-                               </div>
-
-                           </li>
-
-                           <li className='menu-item-has-children'>
-                               <Link to='/kids' className="">KIDS</Link>
-                               <div className='sub-menu mega-menu mega-menu-column-5'>
-                               <div className='list-item'>
-                                    <h4 className='title'>Topwear</h4>
-                                    <ul>
-                                        <li><Link>T-Shirts</Link></li>
-                                        <li><Link>Casual Shirts</Link></li>
-                                        <li><Link>Formal Shirts</Link></li>
-                                        <li><Link>Sweatshirts</Link></li>
-                                        <li><Link>Sweaters</Link></li>
-                                        <li><Link>Jackets</Link></li>
-                                        <li><Link>Blazers & Coats</Link></li>
-                                        <li><Link>Suits</Link></li>
-                                        <li><Link>Rain Jackets</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Indian & Festive Wear</h4>
-                                    <ul>
-                                        <li><Link>Kurtas & Kurta Sets </Link></li>
-                                        <li><Link>Sherwanis</Link></li>
-                                        <li><Link>Nehru jackets</Link></li>
-                                        <li><Link>Dhotis</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Bottomwear</h4>
-                                    <ul>
-                                        <li><Link>Jeans</Link></li>
-                                        <li><Link>Casual Trousers</Link></li>
-                                        <li><Link>Formal Trousers</Link></li>
-                                        <li><Link>Shorts</Link></li>
-                                        <li><Link>Track Pants & Joggers</Link></li>
-                                        <li><Link>Jackets</Link></li>                                       
-                                    </ul>
-                                    <h4 className='title'>Indian & Sleep Wear</h4>
-                                    <ul>
-                                        <li><Link>Briefs & Trunks </Link></li>
-                                        <li><Link>Boxers</Link></li>
-                                        <li><Link>Vests</Link></li>
-                                        <li><Link>Sleepwears & Loungewears</Link></li>
-                                        <li><Link>Thermals</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Plus Sizes</h4>
-                                </div>
-
-                                <div className='list-item'>
-                                    <h4 className='title'>Footwear</h4>
-                                    <ul>
-                                       
-                                        <li><Link>Casual Shoes</Link></li>
-                                        <li><Link>Formal Shoes</Link></li>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sneakers</Link></li>
-                                        <li><Link>Sandals & Flotters</Link></li>
-                                        <li><Link>Flip Flops</Link></li>
-                                        <li><Link>Socks</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Personal Care & Groomings</h4>
-                                    <h4 className='title'>Sunglasses & Frames</h4>
-                                    <h4 className='title'>Watches</h4>
-                                    
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Sports and Active wear</h4>
-                                    <ul>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sports Sandals</Link></li>
-                                        <li><Link>Active T-Shirts</Link></li>
-                                        <li><Link>Track Pants & Shorts</Link></li>
-                                        <li><Link>Tracksuits</Link></li>
-                                        <li><Link>Jackets & Sweatshirts</Link></li>
-                                        <li><Link>Sports Accessories</Link></li>
-                                        <li><Link>Swimwears</Link></li>
-                                       
-                                    </ul>
-                                    <h4 className='title'>Gadgets</h4>
-                                    <ul>
-                                        <li><Link>Smart Wearables</Link></li>
-                                        <li><Link>Fitness Gadgets</Link></li>
-                                        <li><Link>Headphones</Link></li>
-                                        <li><Link>Speakers</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                <h4 className='title'>Fashion Accessories</h4>
-                                <ul>
-                                        <li><Link>Wallets</Link></li>
-                                        <li><Link>Belts</Link></li>
-                                        <li><Link>Perfumes & Body Mist</Link></li>
-                                        <li><Link>Trimmers</Link></li>
-                                        <li><Link>Deodrants</Link></li>
-                                        <li><Link>Ties, Cufflinks & Pockets Squares</Link></li>
-                                        <li><Link>Accessories Gift Sets</Link></li>
-                                        <li><Link>Caps & Hats</Link></li>
-                                        <li><Link>Mufflers, Scaves & Gloves</Link></li>
-                                        <li><Link>Phone Cases</Link></li>
-                                        <li><Link>Rings & Wristwears</Link></li>
-                                        <li><Link>Helmets</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Bags & Bagpacks</h4>
-                                    <ul>
-                                        <li><Link>Luggages & Trolleys</Link></li>                                                                              
-                                    </ul>
-                                </div>
-                                
-                               </div>
-                               
-                           </li>
-
-                           <li className='menu-item-has-children'>
-                               <Link to='/homeandliving' className="">HOME & LIVING</Link>
-                               <div className='sub-menu mega-menu mega-menu-column-5'>
-                               <div className='list-item'>
-                                    <h4 className='title'>Topwear</h4>
-                                    <ul>
-                                        <li><Link>T-Shirts</Link></li>
-                                        <li><Link>Casual Shirts</Link></li>
-                                        <li><Link>Formal Shirts</Link></li>
-                                        <li><Link>Sweatshirts</Link></li>
-                                        <li><Link>Sweaters</Link></li>
-                                        <li><Link>Jackets</Link></li>
-                                        <li><Link>Blazers & Coats</Link></li>
-                                        <li><Link>Suits</Link></li>
-                                        <li><Link>Rain Jackets</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Indian & Festive Wear</h4>
-                                    <ul>
-                                        <li><Link>Kurtas & Kurta Sets </Link></li>
-                                        <li><Link>Sherwanis</Link></li>
-                                        <li><Link>Nehru jackets</Link></li>
-                                        <li><Link>Dhotis</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Bottomwear</h4>
-                                    <ul>
-                                        <li><Link>Jeans</Link></li>
-                                        <li><Link>Casual Trousers</Link></li>
-                                        <li><Link>Formal Trousers</Link></li>
-                                        <li><Link>Shorts</Link></li>
-                                        <li><Link>Track Pants & Joggers</Link></li>
-                                        <li><Link>Jackets</Link></li>                                       
-                                    </ul>
-                                    <h4 className='title'>Indian & Sleep Wear</h4>
-                                    <ul>
-                                        <li><Link>Briefs & Trunks </Link></li>
-                                        <li><Link>Boxers</Link></li>
-                                        <li><Link>Vests</Link></li>
-                                        <li><Link>Sleepwears & Loungewears</Link></li>
-                                        <li><Link>Thermals</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Plus Sizes</h4>
-                                </div>
-
-                                <div className='list-item'>
-                                    <h4 className='title'>Footwear</h4>
-                                    <ul>
-                                       
-                                        <li><Link>Casual Shoes</Link></li>
-                                        <li><Link>Formal Shoes</Link></li>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sneakers</Link></li>
-                                        <li><Link>Sandals & Flotters</Link></li>
-                                        <li><Link>Flip Flops</Link></li>
-                                        <li><Link>Socks</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Personal Care & Groomings</h4>
-                                    <h4 className='title'>Sunglasses & Frames</h4>
-                                    <h4 className='title'>Watches</h4>
-                                    
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Sports and Active wear</h4>
-                                    <ul>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sports Sandals</Link></li>
-                                        <li><Link>Active T-Shirts</Link></li>
-                                        <li><Link>Track Pants & Shorts</Link></li>
-                                        <li><Link>Tracksuits</Link></li>
-                                        <li><Link>Jackets & Sweatshirts</Link></li>
-                                        <li><Link>Sports Accessories</Link></li>
-                                        <li><Link>Swimwears</Link></li>
-                                       
-                                    </ul>
-                                    <h4 className='title'>Gadgets</h4>
-                                    <ul>
-                                        <li><Link>Smart Wearables</Link></li>
-                                        <li><Link>Fitness Gadgets</Link></li>
-                                        <li><Link>Headphones</Link></li>
-                                        <li><Link>Speakers</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                <h4 className='title'>Fashion Accessories</h4>
-                                <ul>
-                                        <li><Link>Wallets</Link></li>
-                                        <li><Link>Belts</Link></li>
-                                        <li><Link>Perfumes & Body Mist</Link></li>
-                                        <li><Link>Trimmers</Link></li>
-                                        <li><Link>Deodrants</Link></li>
-                                        <li><Link>Ties, Cufflinks & Pockets Squares</Link></li>
-                                        <li><Link>Accessories Gift Sets</Link></li>
-                                        <li><Link>Caps & Hats</Link></li>
-                                        <li><Link>Mufflers, Scaves & Gloves</Link></li>
-                                        <li><Link>Phone Cases</Link></li>
-                                        <li><Link>Rings & Wristwears</Link></li>
-                                        <li><Link>Helmets</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Bags & Bagpacks</h4>
-                                    <ul>
-                                        <li><Link>Luggages & Trolleys</Link></li>                                                                              
-                                    </ul>
-                                </div>
-                                
-                               </div>
-                           </li>
-                           <li className='menu-item-has-children'>
-                               <Link to='/beuty' className="">BEAUTY</Link>
-                               <div className='sub-menu mega-menu mega-menu-column-5'>
-                               <div className='list-item'>
-                                    <h4 className='title'>Topwear</h4>
-                                    <ul>
-                                        <li><Link>T-Shirts</Link></li>
-                                        <li><Link>Casual Shirts</Link></li>
-                                        <li><Link>Formal Shirts</Link></li>
-                                        <li><Link>Sweatshirts</Link></li>
-                                        <li><Link>Sweaters</Link></li>
-                                        <li><Link>Jackets</Link></li>
-                                        <li><Link>Blazers & Coats</Link></li>
-                                        <li><Link>Suits</Link></li>
-                                        <li><Link>Rain Jackets</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Indian & Festive Wear</h4>
-                                    <ul>
-                                        <li><Link>Kurtas & Kurta Sets </Link></li>
-                                        <li><Link>Sherwanis</Link></li>
-                                        <li><Link>Nehru jackets</Link></li>
-                                        <li><Link>Dhotis</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Bottomwear</h4>
-                                    <ul>
-                                        <li><Link>Jeans</Link></li>
-                                        <li><Link>Casual Trousers</Link></li>
-                                        <li><Link>Formal Trousers</Link></li>
-                                        <li><Link>Shorts</Link></li>
-                                        <li><Link>Track Pants & Joggers</Link></li>
-                                        <li><Link>Jackets</Link></li>                                       
-                                    </ul>
-                                    <h4 className='title'>Indian & Sleep Wear</h4>
-                                    <ul>
-                                        <li><Link>Briefs & Trunks </Link></li>
-                                        <li><Link>Boxers</Link></li>
-                                        <li><Link>Vests</Link></li>
-                                        <li><Link>Sleepwears & Loungewears</Link></li>
-                                        <li><Link>Thermals</Link></li>
-                                    </ul>
-                                    <h4 className='title'>Plus Sizes</h4>
-                                </div>
-
-                                <div className='list-item'>
-                                    <h4 className='title'>Footwear</h4>
-                                    <ul>
-                                       
-                                        <li><Link>Casual Shoes</Link></li>
-                                        <li><Link>Formal Shoes</Link></li>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sneakers</Link></li>
-                                        <li><Link>Sandals & Flotters</Link></li>
-                                        <li><Link>Flip Flops</Link></li>
-                                        <li><Link>Socks</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Personal Care & Groomings</h4>
-                                    <h4 className='title'>Sunglasses & Frames</h4>
-                                    <h4 className='title'>Watches</h4>
-                                    
-                                </div>
-                                <div className='list-item'>
-                                    <h4 className='title'>Sports and Active wear</h4>
-                                    <ul>
-                                        <li><Link>Sport Shoes</Link></li>
-                                        <li><Link>Sports Sandals</Link></li>
-                                        <li><Link>Active T-Shirts</Link></li>
-                                        <li><Link>Track Pants & Shorts</Link></li>
-                                        <li><Link>Tracksuits</Link></li>
-                                        <li><Link>Jackets & Sweatshirts</Link></li>
-                                        <li><Link>Sports Accessories</Link></li>
-                                        <li><Link>Swimwears</Link></li>
-                                       
-                                    </ul>
-                                    <h4 className='title'>Gadgets</h4>
-                                    <ul>
-                                        <li><Link>Smart Wearables</Link></li>
-                                        <li><Link>Fitness Gadgets</Link></li>
-                                        <li><Link>Headphones</Link></li>
-                                        <li><Link>Speakers</Link></li>                                        
-                                    </ul>
-                                </div>
-                                <div className='list-item'>
-                                <h4 className='title'>Fashion Accessories</h4>
-                                <ul>
-                                        <li><Link>Wallets</Link></li>
-                                        <li><Link>Belts</Link></li>
-                                        <li><Link>Perfumes & Body Mist</Link></li>
-                                        <li><Link>Trimmers</Link></li>
-                                        <li><Link>Deodrants</Link></li>
-                                        <li><Link>Ties, Cufflinks & Pockets Squares</Link></li>
-                                        <li><Link>Accessories Gift Sets</Link></li>
-                                        <li><Link>Caps & Hats</Link></li>
-                                        <li><Link>Mufflers, Scaves & Gloves</Link></li>
-                                        <li><Link>Phone Cases</Link></li>
-                                        <li><Link>Rings & Wristwears</Link></li>
-                                        <li><Link>Helmets</Link></li>
-                                        
-                                    </ul>
-                                    <h4 className='title'>Bags & Bagpacks</h4>
-                                    <ul>
-                                        <li><Link>Luggages & Trolleys</Link></li>                                                                              
-                                    </ul>
-                                </div>
-                                
-                               </div>
-                           </li>
-                           <li className='menu-item-has-children'>
-                               <Link to='/studio' className="">STUDIO</Link>
-                               <div className='sub-menu mega-menu mega-menu-column-1'>
-                                <div className='list-item-st'>
-                                    <h3>Studio</h3>
-                                    <img src={studio} alt="studio img" /><br />
-                                    <button>Explore More</button>
-                                </div>
-                                
-                                    
-                               </div>
-                           </li>
-                       </ul>
-
-                       
-                    </nav>
-                </div>
-                {/* Menu ends here */}
-                <button><Link><FaSearch/></Link></button>
-                <input placeholder='Search for product,brand and more'  className='search-bar'/>
-
-                <div className='header-item item-right'>
-                                        
-
-                        <Link to=""><FaUser/></Link>
-                        <Link to=""><FaHeart/></Link>
-                        <Link to=""><FaShoppingBag/></Link>
-                </div>
-
-            </div>
-           
+        <div className="header-item item-right">
+          <InputGroup w={{ base: "100%", sm: "100%", md: "100%", lg: "350px" }}>
+            <InputRightElement
+              pointerEvents="none"
+              children={<FaSearch color="gray.300" />}
+            />
+            <Input
+              w="100%"
+              className="SearchBar"
+              type="tel"
+              placeholder="Search for products , brands and more "
+            />
+          </InputGroup>
         </div>
-        
-    </div>
-  )
-}
+        <div className="NavbarIcons">
+          {" "}
+          <NavbarIcons />
+        </div>
+        {/* </div> */}
+        {/* </div> */}
+      </Flex>
+    </ChakraProvider>
+  );
+};
 
-export default Navbar
+export default Navbar;
