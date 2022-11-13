@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "./Image";
+import { Link } from "react-router-dom";
 
 const CartNav = () => {
   return (
     <NavigationContainer>
-      <Image
-        src={"https://compare.buyhatke.com/company/img/myntra_logo.png"}
-        alt="Myntra Logo"
-        height="35px"
-      />
+      <Link to="/">
+        <Image
+          src={"https://compare.buyhatke.com/company/img/myntra_logo.png"}
+          alt="Myntra Logo"
+          height="35px"
+        />
+      </Link>
       <CheckoutSteps>
         <CheckoutList>BAG</CheckoutList>
         <Divider />

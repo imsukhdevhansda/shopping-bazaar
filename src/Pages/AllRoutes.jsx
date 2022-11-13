@@ -11,22 +11,20 @@ import Login from "../Components/Signup/Login";
 import Signup from "../Components/Signup/Signup";
 import PhoneLogin from "../Components/Signup/PhoneLogin";
 
-
 const AllRoutes = () => {
   return (
     <Routes>
-      
-      <Route path="/" element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup />}/>
-      <Route path="/phonelogin" element={<PhoneLogin/>}/>
-      <Route path="/signup" element={<Signup />}/>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/phonelogin" element={<PhoneLogin />} />
+      <Route path="/signup" element={<Signup />} />
 
       <Route path="/cart" element={<Cart />}></Route>
-      <Route path="/address" element={<CheckoutAddress />}></Route>
+      <Route path="/address" element={<CheckoutAddress />} />
       <Route path="/payment" element={<Payment />}></Route>
       <Route path="/Wishlist" element={<Wishlist />}></Route>
-      <Route path="/mens" element={<Men/>}></Route>
+      <Route path="/mens" element={<Men />}></Route>
       <Route path="/singleProduct/:id" element={<SingleProductP />}></Route>
     </Routes>
   );
