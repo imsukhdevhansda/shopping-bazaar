@@ -24,7 +24,7 @@ const NavbarIcons = () => {
           alignItems: "center",
           textAlign: "center",
         }}
-        to=""
+        to="/Login"
       >
         <GrUser style={{ fontSize: "20px", fontWeight: "200" }} />
         <span>Profile</span>
@@ -37,7 +37,7 @@ const NavbarIcons = () => {
           alignItems: "center",
           textAlign: "center",
         }}
-        to=""
+        to="/wishlist"
       >
         <BiHeart style={{ fontSize: "20px" }} />
         <span>WishList </span>
@@ -50,7 +50,7 @@ const NavbarIcons = () => {
           alignItems: "center",
           textAlign: "center",
         }}
-        to=""
+        to="/cart"
       >
         <HiOutlineShoppingBag style={{ fontSize: "20px" }} />
         <span>Bag</span>

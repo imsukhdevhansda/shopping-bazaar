@@ -5,6 +5,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { app, db } from "../../config/firebaseConfig"
 import { doc, setDoc } from "firebase/firestore";
+import { ChakraProvider } from '@chakra-ui/react'
 import { Box, Input, Image, Flex, Button, HStack, PinInput, PinInputField } from "@chakra-ui/react";
 import {
     getAuth,
@@ -12,6 +13,7 @@ import {
     RecaptchaVerifier,
     updateProfile
   } from "firebase/auth";
+import { Link } from 'react-router-dom'
 
 
 const PhoneLogin = () => {
@@ -89,6 +91,7 @@ const PhoneLogin = () => {
   
 
   return (
+    <ChakraProvider>
     <div style={{marginTop:"150px"}}>
     <Flex h="100vh" alignItems="center" justifyContent="center" >
       <Box
@@ -165,11 +168,11 @@ const PhoneLogin = () => {
           Get OTP
         </Button>
         
-
-
-        <Button  borderRadius="0" mb="-5px" pt="18px" pr="60px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="60px" size="sm" leftIcon={< FiPhone />}>
-           Phone Login 
+        <Link to="/Login">
+        <Button  borderRadius="0" mb="-5px" pt="18px" pr="60px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="60px" size="sm">
+           Email Login
         </Button>
+        </Link>
         <Button  borderRadius="0" mb="25px" pt="18px" pr="75px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="75px" size="sm" leftIcon={< FcGoogle />}>
             Google
         </Button>
@@ -177,6 +180,7 @@ const PhoneLogin = () => {
     </Flex>
     <div id="sign-in-button" />
   </div>
+  </ChakraProvider>
   )
 }
 
