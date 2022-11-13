@@ -3,7 +3,7 @@ import { FcGoogle } from 'react-icons/fc'
 import {  FiPhone } from 'react-icons/fi'
 import { loginsuccess } from '../../Redux/AuthReducer/action';
 import {useDispatch, useSelector} from "react-redux"
-
+import { ChakraProvider } from '@chakra-ui/react';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -85,6 +85,7 @@ const Login = () => {
   };
 
   return (
+    <ChakraProvider>
     <div>
       <Flex h="100vh" alignItems="center" justifyContent="center" mt="90px">
         <Box
@@ -120,6 +121,7 @@ const Login = () => {
         </Box>
       </Flex>
     </div>
+    </ChakraProvider>
   )
 }
 
