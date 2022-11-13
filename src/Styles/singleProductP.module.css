@@ -1,175 +1,162 @@
-.SingleProductP{
-    /* color: red; */
-    /* border: 1px solid orange; */
-     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    
+.SingleProductP {
+  /* color: red; */
+  /* border: 1px solid orange; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  margin-bottom: 10px;
 }
-.spLocation{
-    /* border: 1px solid brown; */
-    height: 69px;
-    padding: 29px 0px 22px;
-    width: 95%;
-    margin-left: 30px;
+.spLocation {
+  /* border: 1px solid brown; */
+  height: 69px;
+  padding: 29px 0px 22px;
+  width: 95%;
+  margin-left: 30px;
 }
-.spLocation span{
-    font-size: 14px;
-    color: grey;
+.spLocation span {
+  font-size: 14px;
+  color: grey;
 }
-.spLocation :nth-child(5){
-    color: black;
-    font-weight: bold;
+.spLocation :nth-child(5) {
+  color: black;
+  font-weight: bold;
 }
-.spLocation :nth-child(7){
-    color: black;
-    font-weight: bold;
+.spLocation :nth-child(7) {
+  color: black;
+  font-weight: bold;
 }
-.sppDiv{
-    /* border: 1px solid green; */
-    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
-    width: 95%;
-    margin-left: 30px;
-    display: flex;
-    /* justify-content: space-between; */
-
+.sppDiv {
+  /* border: 1px solid green; */
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  width: 95%;
+  margin-left: 30px;
+  display: flex;
+  /* justify-content: space-between; */
 }
-.sppImgDiv{
-    /* border: 1px solid goldenrod; */
-    width: 30%;
-
+.sppImgDiv {
+  /* border: 1px solid goldenrod; */
+  width: 30%;
 }
-.sppDetails{
-    /* border: 1px solid blue; */
-    width: 40%;
-    margin-left: 30px;
-
+.sppDetails {
+  /* border: 1px solid blue; */
+  width: 40%;
+  margin-left: 30px;
 }
 
-.sppDetailsHead{
-    font-size: 24px;
+.sppDetailsHead {
+  font-size: 24px;
 }
-.sppDetailsTitle{
-    font-size: 20px;
-    font-weight: 100;
-    margin: 10px 0px;
-    color: grey;
+.sppDetailsTitle {
+  font-size: 20px;
+  font-weight: 100;
+  margin: 10px 0px;
+  color: grey;
 }
-.sppDetailsRatings{
-    /* border: 1px solid purple; */
-    width: 157.73px;
-    height: 29px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    border-radius: 2px;
+.sppDetailsRatings {
+  /* border: 1px solid purple; */
+  width: 157.73px;
+  height: 29px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 2px;
 }
-.sppDetailsSeprator1{
-      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-      border: 0.50px;
-      margin-top: 15px;
-      margin-bottom: 25px;
-
-}
-
-.sppDetailsPrices{
-    /* border: 1px solid sandybrown; */
-    margin-bottom: 10px;
-}
-.sppDetailsStrick{
-    font-size: 20px;
-    color: grey;
-    text-decoration: line-through;
-    margin-left: 15px;
-
-}
-.sppDiscountPercentage{
-     font-size: 20px;
-     color:sandybrown ;
-     font-weight: bold;
-      margin-left: 15px;
-
-}
-.sppDetailsTax{
-    font-size: 14px;
-    color:#03A685 ;
-    font-weight: bold;
-
+.sppDetailsSeprator1 {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border: 0.5px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
-.sppSize{
-    /* border: 1px solid brown; */
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+.sppDetailsPrices {
+  /* border: 1px solid sandybrown; */
+  margin-bottom: 10px;
+}
+.sppDetailsStrick {
+  font-size: 20px;
+  color: grey;
+  text-decoration: line-through;
+  margin-left: 15px;
+}
+.sppDiscountPercentage {
+  font-size: 20px;
+  color: sandybrown;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.sppDetailsTax {
+  font-size: 14px;
+  color: #03a685;
+  font-weight: bold;
 }
 
-.sppSize :nth-child(1){
-    font-size: 16px;
-    font-weight: bold;
-}
-.sppSize :nth-child(2){
-    font-size: 16px;
-    font-weight: bold;
-    color: #ff3e6c;
-
+.sppSize {
+  /* border: 1px solid brown; */
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
-.sppSizeList{
-    /* border: 1px solid blue;  */
-    margin: 30px 0px;
-    display: flex;
-    justify-content: space-between;
-
+.sppSize :nth-child(1) {
+  font-size: 16px;
+  font-weight: bold;
+}
+.sppSize :nth-child(2) {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff3e6c;
 }
 
-.sppSizeList button{
-    border: 0.50px solid grey;
-    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-
-
-}
-.sppSizeList button:hover{
-    border: 0.50px solid #ff3e6c;
-}
-.sppAddToBag,.sppWishlist{
-    border: 0px;
-    font-size: 17px;
-    width: 260px;
-    height: 54px;
-    padding: 15px 30px;
-    border-radius: 5px;
-    background-color: #ff3e6c;
-    color: beige;
-    font-weight: bold;
-    cursor: pointer;
-}
-.sppWishlist{
-    background-color: white;
-    color: black;
-    width: 190px;
-    margin-left: 15px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    display: inline-flex;
-    align-items: center;
-
+.sppSizeList {
+  /* border: 1px solid blue;  */
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.sppAddToBag:hover{
-    background-color: #ff3e6be5;
-
+.sppSizeList button {
+  border: 0.5px solid grey;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sppSizeList button:hover {
+  border: 0.5px solid #ff3e6c;
+}
+.sppAddToBag,
+.sppWishlist {
+  border: 0px;
+  font-size: 17px;
+  width: 260px;
+  height: 54px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  background-color: #ff3e6c;
+  color: beige;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sppWishlist {
+  background-color: white;
+  color: black;
+  width: 190px;
+  margin-left: 15px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  display: inline-flex;
+  align-items: center;
 }
 
-.sppWishlist:hover{
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
-    
+.sppAddToBag:hover {
+  background-color: #ff3e6be5;
 }
 
+.sppWishlist:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}
 
 /* style={{fontSize:"14px",color:"#03A685",margin:"20px 0px"}} */

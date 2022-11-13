@@ -19,15 +19,13 @@ function SingleProductP() {
     // console.log(p);
 
     dispatch(addToCart(p));
-    alert("Added to bag Successfully 😊")
-
+    alert("Added to bag Successfully 😊");
   };
 
   const handleAddWishlist = () => {
     dispatch(addToWishList(p));
 
-     alert("Added to wishlist Successfully 😊");
-
+    alert("Added to wishlist Successfully 😊");
   };
 
   return (
@@ -85,7 +83,10 @@ function SingleProductP() {
               {" "}
               <span>SELECT SIZE</span>
               <span>
-                SIZE CHART <AiOutlineRight style={{ fontSize: "13px" }} />{" "}
+                SIZE CHART{" "}
+                <AiOutlineRight
+                  style={{ fontSize: "13px", display: "inline" }}
+                />{" "}
               </span>{" "}
             </div>
 
@@ -97,7 +98,10 @@ function SingleProductP() {
 
             <button className={styles.sppAddToBag} onClick={handleAddCart}>
               {" "}
-              <BsFillBagFill style={{ marginRight: "10px" }} /> ADD TO BAG
+              <BsFillBagFill
+                style={{ marginRight: "10px", display: "inline" }}
+              />{" "}
+              ADD TO BAG
             </button>
             <button className={styles.sppWishlist} onClick={handleAddWishlist}>
               {" "}
