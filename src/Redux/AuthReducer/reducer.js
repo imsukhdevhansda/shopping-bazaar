@@ -24,7 +24,7 @@ initialState.cart.map((items) => (items["id"] = items.product_base_href));
 
 export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-  console.log(payload)
+  // console.log(payload)
   switch (type) {
     case types.REMOVE_CART_ITEM:
       const updatedCart = state.cart.filter(

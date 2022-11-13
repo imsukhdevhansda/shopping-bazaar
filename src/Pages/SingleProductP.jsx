@@ -1,53 +1,26 @@
-import React from 'react'
+import React from "react";
 import styles from "../Styles/singleProductP.module.css";
 import { BsFillStarFill, BsFillBagFill, BsFillHeartFill } from "react-icons/bs";
 import { AiOutlineRight } from "react-icons/ai";
-
+import { getLocalData } from "../Utils/helperFuns";
+import { addToCart, addToWishList } from "../Redux/AuthReducer/action";
 
 function SingleProductP() {
+  let p = getLocalData("singlePageData");
 
+  let productSize = ["XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL"];
 
+  const handleAddCart = () => {
+    // console.log(p);
 
+    addToCart(p);
+    alert("Product Added Successfully")
+  };
 
-
-
-
-
-   let p = {
-     product_ratingsContainer: 4.2,
-     product_ratingsCount: "19.7k",
-     "product-separator": "|",
-     "product-base href":
-       "https://www.myntra.com/tshirts/roadster/roadster-men-black-cotton-pure-cotton-t-shirt/1996777/buy",
-     img_responsive_src:
-       "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1996777/2017/11/7/11510046815508-Roadster-Men-Black-Solid-Round-Neck-T-shirt-4011510046815294-1.jpg",
-     product_brand: "Roadster",
-     product_product: "Men Cotton Pure Cotton T-shirt",
-     product_sizeInventoryPresent: "XS,",
-     product_sizeInventoryPresent_2: "S,",
-     product_sizeInventoryPresent_3: "M,",
-     product_sizeInventoryPresent_4: "L,",
-     product_sizeInventoryPresent_5: "XL,",
-     product_sizeInventoryPresent_6: "XXL,",
-     product_sizeInventoryPresent_7: "3XL,",
-     product_sizeInventoryPresent_8: "4XL",
-     product_discountedPrice: "Rs. 199",
-     product_strike: "Rs. 499",
-     product_discountPercentage: "(60% OFF)",
-     product_sizeButton: "S",
-     product_sizeButton_2: "M",
-     product_sizeButton_3: "L",
-     product_sizeButton_4: "XL",
-     product_sizeButton_5: "",
-     product_sizeButton_6: "",
-   };
-
-
-   let productSize = ["XS","S","M","L","XL","XXL","3XL","4XL"];
-
-
-
-
+  const handleAddWishlist = () => {
+    addToWishList(p);
+     alert("Product Added Successfully");
+  };
 
   return (
     <div className={styles.SingleProductP}>
@@ -104,18 +77,18 @@ function SingleProductP() {
           </div>
 
           <div className={styles.sppSizeList}>
-            {productSize.map((size) => (
-              <button> {size}</button>
+            {productSize.map((size, id) => (
+              <button key={id}> {size}</button>
             ))}
           </div>
 
-          <button className={styles.sppAddToBag}>
+          <button className={styles.sppAddToBag} onClick={handleAddCart}>
             {" "}
             <BsFillBagFill style={{ marginRight: "10px" }} /> ADD TO BAG
           </button>
-          <button className={styles.sppWishlist}>
+          <button className={styles.sppWishlist} onClick={handleAddWishlist}>
             {" "}
-            <BsFillHeartFill style={{ marginRight: "10px",}} /> WISHLIST
+            <BsFillHeartFill style={{ marginRight: "10px" }} /> WISHLIST
           </button>
         </div>
       </div>
@@ -123,4 +96,4 @@ function SingleProductP() {
   );
 }
 
-export default SingleProductP
+export default SingleProductP;
