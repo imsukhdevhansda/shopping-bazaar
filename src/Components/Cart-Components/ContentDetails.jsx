@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { updateAddress } from "../../Redux/AuthReducer/action";
 import Button from "./Button";
 
 const states = [
@@ -155,6 +156,7 @@ const states = [
 
 const ContentDetails = () => {
   const store = useSelector((store) => store.AuthReducer);
+  console.log("store:", store);
   const {
     name: getName,
     mobile_number,
@@ -176,7 +178,8 @@ const ContentDetails = () => {
   const [pageRedirect, setPageRedirect] = useState(false);
 
   const location = useLocation();
-  console.log("location:", location);
+
+  const dispatch = useDispatch();
 
   const handleContactDetails = () => {
     const contentData = {
@@ -187,7 +190,7 @@ const ContentDetails = () => {
       city,
       state_ut,
     };
-    console.log(contentData);
+    dispatch(updateAddress(contentData));
     setPageRedirect(true);
   };
 
