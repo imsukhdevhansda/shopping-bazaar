@@ -73,21 +73,20 @@
 
 .sppDetailsPrices{
     /* border: 1px solid sandybrown; */
-    width: 340px;
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
 }
 .sppDetailsStrick{
     font-size: 20px;
     color: grey;
     text-decoration: line-through;
+    margin-left: 15px;
 
 }
 .sppDiscountPercentage{
      font-size: 20px;
      color:sandybrown ;
      font-weight: bold;
+      margin-left: 15px;
 
 }
 .sppDetailsTax{

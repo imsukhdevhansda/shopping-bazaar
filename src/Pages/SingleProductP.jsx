@@ -17,12 +17,12 @@ function SingleProductP() {
     // console.log(p);
 
     dispatch(addToCart(p));
-    alert("Product Added Successfully")
+    alert("Added to bag Successfully 😊")
   };
 
   const handleAddWishlist = () => {
     dispatch(addToWishList(p));
-     alert("Product Added Successfully");
+     alert("Added to wishlist Successfully 😊");
   };
 
   return (
