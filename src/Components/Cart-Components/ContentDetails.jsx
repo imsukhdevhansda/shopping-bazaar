@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -151,12 +152,25 @@ const states = [
 ];
 
 const ContentDetails = () => {
-  const [name, setName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [pincode, setPincode] = useState("");
-  const [locality, setLocality] = useState("");
-  const [city, setCity] = useState("");
-  const [state_ut, setStateUt] = useState("");
+  const store = useSelector((store) => store.AuthReducer);
+  const {
+    name: getName,
+    mobile_number,
+    address: {
+      city: getCity,
+      locality: getLocality,
+      pincode: getPincode,
+      state,
+      town,
+    },
+  } = store;
+
+  const [name, setName] = useState(getName || "");
+  const [mobile, setMobile] = useState(mobile_number.toString() || "");
+  const [pincode, setPincode] = useState(getPincode.toString() || "");
+  const [locality, setLocality] = useState(town || "");
+  const [city, setCity] = useState(getCity || "");
+  const [state_ut, setStateUt] = useState(state || "");
 
   const handleContactDetails = () => {
     const contentData = {
@@ -184,6 +198,7 @@ const ContentDetails = () => {
             onChange={(e) => setName(e.target.value)}
             type="text"
             id="name"
+            disabled
           />
         </InputContainer>
 
@@ -196,6 +211,7 @@ const ContentDetails = () => {
             onChange={(e) => setMobile(e.target.value)}
             type="number"
             id="mobile"
+            disabled={mobile ? true : false}
           />
         </InputContainer>
 
@@ -293,7 +309,7 @@ const ScrollContent = styled.div`
   }
 `;
 
-const InputContainer = styled.div`
+export const InputContainer = styled.div`
   position: relative;
   //   border: 1px solid black;
   :focus-within {
@@ -304,7 +320,7 @@ const InputContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   padding: 0 12px;
   border: 1px solid #94969f;
   width: 100%;
@@ -316,7 +332,7 @@ const Input = styled.input`
   }
 `;
 
-const InputLabel = styled.label`
+export const InputLabel = styled.label`
   position: absolute;
   background-color: white;
   top: ${(length) => (length.top > 0 ? "-8px" : "11px")};

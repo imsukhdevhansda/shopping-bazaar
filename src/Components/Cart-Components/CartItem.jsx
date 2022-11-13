@@ -6,36 +6,64 @@ import { MdArrowDropDown, MdClose } from "react-icons/md";
 import PopUpMenu from "./PopUpMenu";
 import { Text } from "./StyledComponents";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import {
+  addToWishList,
+  modifyItemQuantity,
+  modifyItemSize,
+  removeFromCart,
+} from "../../Redux/AuthReducer/action";
+
+const quantityItem = ["2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 const CartItem = ({
-  image,
-  brand,
-  title,
-  sold,
+  img_responsive_src,
+  product_base_href,
+  product_brand,
+  product_product,
+  sold = product_brand,
   id,
   size,
   selected_size,
-  price,
-  mrp,
+  product_discountedPrice,
+  product_strike,
+  product_discountPercentage,
 }) => {
-  //Image link, brand name,title,sold by,item id
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState("1");
+  const [selectedSize, setSelectedSize] = useState(selected_size || "M");
   const [popUp, setPopUp] = useState(false);
-  console.log("popUp:", popUp);
+  const dispatch = useDispatch();
   const handleDeleteItem = () => {
-    setPopUp(true);
-    console.log(id);
+    dispatch(removeFromCart(id));
   };
-  const handleItemQuantity = () => {
-    // setPopUp(true);
-    console.log(quantity);
+  const moveToWishList = () => {
+    const payload = {
+      img_responsive_src,
+      product_base_href,
+      product_brand,
+      product_product,
+      sold: product_brand,
+      size,
+      product_discountedPrice,
+      product_strike,
+      product_discountPercentage,
+    };
+    dispatch(addToWishList(payload));
+    dispatch(removeFromCart(id));
   };
-  const handleItemSize = () => {
-    size.forEach((size) => console.log(size));
+  const handleItemQuantity = (e) => {
+    setQuantity(e.target.value);
+    const payload = { id, quantity: e.target.value };
+    dispatch(modifyItemQuantity(payload));
+  };
+  const handleItemSize = (e) => {
+    setSelectedSize(e.target.value);
+    const payload = { id, size: e.target.value };
+    dispatch(modifyItemSize(payload));
   };
   return (
     <CartContainer>
-      <RemoveCart onClick={handleDeleteItem}>
+      <RemoveCart onClick={() => setPopUp(true)}>
         <MdClose />
       </RemoveCart>
       <>
@@ -45,56 +73,74 @@ const CartItem = ({
               <MdClose onClick={() => setPopUp(false)} />
 
               <MoveFromBag>
-                <Image src={image} height="70px" />
+                <Image src={img_responsive_src} height="70px" />
                 <DetailsContainer>
                   <Text fweight="bold">Remove From Bag</Text>
                   <span>Are you sure you want to move this item from bag?</span>
                 </DetailsContainer>
               </MoveFromBag>
               <OptionContainer>
-                <button>
+                <Button onClick={handleDeleteItem} border="none">
                   <Text fweight="bold">REMOVE</Text>
-                </button>
+                </Button>
 
-                <button>
+                <Button onClick={moveToWishList} border="none">
                   <Text color="#ff3f6c" fweight="bold">
                     MOVE TO WISHLIST
                   </Text>
-                </button>
+                </Button>
               </OptionContainer>
             </Wrapper>
           </PopUpMenu>
         )}
       </>
       <>
-        <Image height="148px" width="111px" src={image} />
+        <Image height="148px" width="111px" src={img_responsive_src} />
       </>
       <DetailsContainer>
-        <div>{brand}</div>
-        <div>{title}</div>
+        <div>{product_brand}</div>
+        <div>{product_product}</div>
         <div>Sold by: {sold}</div>
         <div>
-          <Options onClick={handleItemSize}>
-            Size {selected_size} {<MdArrowDropDown />}
-          </Options>
-          <Options onClick={handleItemQuantity}>
-            Qty {quantity} {<MdArrowDropDown />}
-          </Options>
+          <select value={selectedSize} onChange={handleItemSize}>
+            {size.map((size) => {
+              return (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              );
+            })}
+          </select>
+          <select value={quantity} onChange={handleItemQuantity}>
+            <option value={1}>{1}</option>
+            {quantityItem.map((qty) => {
+              return (
+                <option key={qty} value={qty}>
+                  {qty}
+                </option>
+              );
+            })}
+          </select>
         </div>
         <div>
-          <PriceTag>₹ {price}</PriceTag>
-          <MRP>₹ {mrp}</MRP>
-          <Discount>70% OFF</Discount>
+          <PriceTag>
+            {/*₹ */}
+            {product_discountedPrice}
+          </PriceTag>
+          <MRP>
+            {/*₹*/} {product_strike}
+          </MRP>
+          <Discount>{product_discountPercentage}</Discount>
         </div>
         <div>
           <BiCheck />
-          Deliverd by <b>17th Nov</b>
+          Deliverd within <b>7 Days</b>
         </div>
       </DetailsContainer>
       {/* Draft */}
       {/* <Wrapper>
         <MoveFromBag>
-          <Image src={image} height="70px" />
+          <Image src={img_responsive_src} height="70px" />
           <DetailsContainer>
             <Text fweight="bold">Remove From Bag</Text>
             <span>Are you sure you want to move this item from bag?</span>
@@ -186,13 +232,13 @@ const MoveFromBag = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 50%;
-  position: absolute;
+  width: 350px;
+  position: relative;
   padding: 10px;
-  left: 0;
-  top: 0;
-  transform: translate(50%, 45vh);
+  margin: auto;
+  transform: translate(0, 45vh);
   background-color: white;
+  border-radius: 4px;
   & > svg {
     position: absolute;
     font-size: 25px;

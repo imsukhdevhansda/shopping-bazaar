@@ -13,10 +13,13 @@ const Button = ({
   height,
   width,
   onClick,
+  radius,
+  children,
 }) => {
   return (
     <Btn
       onClick={onClick}
+      radius={radius}
       border={border}
       col={color}
       bgColor={bgColor}
@@ -27,7 +30,7 @@ const Button = ({
       height={height}
       width={width}
     >
-      {text}
+      {children || text}
     </Btn>
   );
 };
@@ -43,6 +46,7 @@ const Btn = styled.button`
   font-weight: ${(fweight) => fweight.fweight && fweight.fweight};
   width: ${(width) => width.width && width.width};
   height: ${(height) => height.height && height.height};
+  border-radius: ${(style) => style.radius && style.radius};
 `;
 
 export default Button;

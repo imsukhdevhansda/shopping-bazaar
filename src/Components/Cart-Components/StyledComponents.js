@@ -27,4 +27,6 @@ export const Text = styled.div`
   margin: ${(margin) => margin.margin};
   font-size: ${(style) => style.fsize && style.fsize};
   font-weight: ${(style) => style.fweight && style.fweight};
+  display: ${(style) => style.display && style.display};
+  text-decoration: ${(style) => style.decoration && style.decoration};
 `;
