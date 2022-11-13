@@ -1,3 +1,4 @@
+
 import * as types from "./actionTypes";
 
 export const removeFromCart = (payload) => {
@@ -47,3 +48,10 @@ export const setCartEmpty = () => {
     type: types.MAKE_CART_EMPTY,
   };
 };
+
+
+
+export const loginsuccess=(payload)=>(dispatch)=>{
+   return dispatch({type:types.EMAIL_LOGIN_SUCCESS, payload})
+   
+}
