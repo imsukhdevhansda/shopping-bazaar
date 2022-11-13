@@ -1,4 +1,3 @@
-
 import * as types from "./actionTypes";
 
 export const removeFromCart = (payload) => {
@@ -49,9 +48,13 @@ export const setCartEmpty = () => {
   };
 };
 
+export const updateAddress = (payload) => {
+  return {
+    type: types.UPDATE_ADDRESS,
+    payload,
+  };
+};
 
-
-export const loginsuccess=(payload)=>(dispatch)=>{
-   return dispatch({type:types.EMAIL_LOGIN_SUCCESS, payload})
-   
-}
+export const loginsuccess = (payload) => (dispatch) => {
+  return dispatch({ type: types.EMAIL_LOGIN_SUCCESS, payload });
+};
