@@ -72,7 +72,7 @@ const PhoneLogin = () => {
               displayName: data.username
             });
             const docData={
-              address:[],
+              address: { pincode: "", address: "", locality: "" },
               wishlist:[],
               bag:[],
               phone:res.user.phoneNumber

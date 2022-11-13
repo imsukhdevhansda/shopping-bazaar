@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -166,11 +168,15 @@ const ContentDetails = () => {
   } = store;
 
   const [name, setName] = useState(getName || "");
-  const [mobile, setMobile] = useState(mobile_number.toString() || "");
-  const [pincode, setPincode] = useState(getPincode.toString() || "");
+  const [mobile, setMobile] = useState(mobile_number || "");
+  const [pincode, setPincode] = useState(getPincode || "");
   const [locality, setLocality] = useState(town || "");
   const [city, setCity] = useState(getCity || "");
   const [state_ut, setStateUt] = useState(state || "");
+  const [pageRedirect, setPageRedirect] = useState(false);
+
+  const location = useLocation();
+  console.log("location:", location);
 
   const handleContactDetails = () => {
     const contentData = {
@@ -182,7 +188,12 @@ const ContentDetails = () => {
       state_ut,
     };
     console.log(contentData);
+    setPageRedirect(true);
   };
+
+  if (location.pathname === "/address" && pageRedirect) {
+    return <Navigate to={"/payment"} />;
+  }
 
   return (
     <ContentContainer>
@@ -211,7 +222,7 @@ const ContentDetails = () => {
             onChange={(e) => setMobile(e.target.value)}
             type="number"
             id="mobile"
-            disabled={mobile ? true : false}
+            disabled={mobile_number ? true : false}
           />
         </InputContainer>
 

@@ -8,6 +8,7 @@ import OfferBox from "./OfferBox";
 import { HiOutlineClipboardList } from "react-icons/hi";
 import LeftContentBox from "./LeftContentBox";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const LeftItemBox = () => {
   const store = useSelector((store) => store.AuthReducer);
@@ -37,10 +38,12 @@ const LeftItemBox = () => {
             />
           );
         })}
-      <AddFromWishList>
-        <HiOutlineClipboardList />
-        <b>Add more from Wishlist</b>
-      </AddFromWishList>
+      <Link to={"/wishlist"}>
+        <AddFromWishList>
+          <HiOutlineClipboardList />
+          <b>Add more from Wishlist</b>
+        </AddFromWishList>
+      </Link>
     </LeftContentBox>
   );
 };
