@@ -5,12 +5,14 @@ import BestBuys from '../Components/Home-Components/BestBuys'
 import Brands from '../Components/Home-Components/Brands'
 import ShopByCategory from '../Components/Home-Components/ShopByCategory'
 import { Image } from '@chakra-ui/react'
+import Navbar from '../Components/Navbar'
 import BannerSelectImages from '../Components/Home_Components_for_Mobile/BannerSelectImages'
-
+import Footer from "../Components/Footer/Footer"
 
 const Home = () => {
   return (
     <>
+    <Navbar/>
     {/*Small Screen .... Mobile Screen Start*/}
 
     <BannerSelectImages/>
@@ -24,7 +26,7 @@ const Home = () => {
         <Brands/>
         {/*Shop By Category */}<Image w='100%' src='https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/11/11/49039744-a61e-4220-a40a-e791ce77844f1668142162387-Shop-By-Category--1-.jpg'/>
         <ShopByCategory/>
-        
+      <Footer/>
     </>
   )
 }

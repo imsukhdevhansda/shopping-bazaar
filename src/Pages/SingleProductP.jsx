@@ -4,21 +4,24 @@ import { BsFillStarFill, BsFillBagFill, BsFillHeartFill } from "react-icons/bs";
 import { AiOutlineRight } from "react-icons/ai";
 import { getLocalData } from "../Utils/helperFuns";
 import { addToCart, addToWishList } from "../Redux/AuthReducer/action";
+import { useDispatch } from "react-redux";
 
 function SingleProductP() {
   let p = getLocalData("singlePageData");
+
+  const dispatch = useDispatch()
 
   let productSize = ["XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL"];
 
   const handleAddCart = () => {
     // console.log(p);
 
-    addToCart(p);
+    dispatch(addToCart(p));
     alert("Product Added Successfully")
   };
 
   const handleAddWishlist = () => {
-    addToWishList(p);
+    dispatch(addToWishList(p));
      alert("Product Added Successfully");
   };
 

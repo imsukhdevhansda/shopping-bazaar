@@ -14,6 +14,7 @@ import { Box, Input, Image, Flex, Button, Text } from "@chakra-ui/react";
 import { collection } from "@firebase/firestore"
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig"; 
+import { Link } from 'react-router-dom';
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Login = () => {
@@ -107,17 +108,21 @@ const Login = () => {
           <Button onClick={handleSubmit} borderRadius="0" mb="-5px" pt="18px" pr="95px" pb="18px" pl="95px" size="sm" bg="red.400" fontSize="sm">
             Login
           </Button>
+          <Link to="/phonelogin">
           <Button  borderRadius="0" mb="-5px" pt="18px" pr="60px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="60px" size="sm" leftIcon={< FiPhone />}>
              Phone Login 
           </Button>
+          </Link>
           <Button onClick={handleGooglelogin} borderRadius="0" pt="18px" pr="75px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="75px" size="sm" leftIcon={< FcGoogle />}>
               Google
           </Button>
           <Text color="rgba(0, 0, 0, 0.50)">------------------- or --------------------</Text>        
           <Text fontSize='md' color="black" >New to Myntra ?</Text>
+          <Link to="/signup">
           <Button  borderRadius="0" mb="25px" pt="18px" pr="40px" pb="18px" bg="red.400" fontSize="sm"  pl="40px" size="sm">
               CREATE NEW ACCOUNT
           </Button>
+          </Link>
         </Box>
       </Flex>
     </div>

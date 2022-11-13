@@ -7,10 +7,21 @@ import Wishlist from "./Wishlist";
 import Payment from "./Payment";
 import CheckoutAddress from "./CheckoutAddress";
 import SingleProductP from "./SingleProductP";
+import Login from "../Components/Signup/Login";
+import Signup from "../Components/Signup/Signup";
+import PhoneLogin from "../Components/Signup/PhoneLogin";
+
 
 const AllRoutes = () => {
   return (
     <Routes>
+      
+      <Route path="/" element={<Home/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<Signup />}/>
+      <Route path="/phonelogin" element={<PhoneLogin/>}/>
+      <Route path="/signup" element={<Signup />}/>
+
       <Route path="/cart" element={<Cart />}></Route>
       <Route path="/address" element={<CheckoutAddress />}></Route>
       <Route path="/payment" element={<Payment />}></Route>
