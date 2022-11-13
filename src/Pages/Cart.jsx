@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 import CartNav from "../Components/Cart-Components/CartNav";
 import LeftItemBox from "../Components/Cart-Components/LeftItemBox";
 import RightItemBox from "../Components/Cart-Components/RightItemBox";
+import Footer from "../Components/Footer/Footer";
 
 const Cart = () => {
   // const user = useSelector((store) => console.log(store)); //For testing
@@ -13,6 +13,7 @@ const Cart = () => {
       <LeftItemBox />
       <RightItemBox />
       <hr />
+      <Footer />
     </CartContainer>
   );
 };

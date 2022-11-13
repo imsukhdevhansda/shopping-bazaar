@@ -43,11 +43,11 @@ const Navbar = () => {
       >
         <Menu>
           <MenuButton
-            display={{ lg: "none", base: "block" }}
-               ml='10px'                    
+            display={{ lg: "none", md: "block", base: "block" }}
+            ml="10px"
             as={IconButton}
             aria-label="Options"
-            icon={<GoThreeBars style={{display:'block' ,margin:'auto'}} />}
+            icon={<GoThreeBars style={{ display: "block", margin: "auto" }} />}
             variant="outline"
           />
           <MenuList listStyleType="none">
@@ -56,7 +56,7 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/men" className="">
+                <Link to="/mens" className="">
                   MEN
                 </Link>
               </li>

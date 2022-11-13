@@ -6,6 +6,9 @@ import styled from "styled-components";
 import Image from "../Components/Cart-Components/Image";
 import Button from "../Components/Cart-Components/Button";
 import { addToCart, removeFromWishlist } from "../Redux/AuthReducer/action";
+import { Link } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer/Footer";
 
 const Wishlist = () => {
   const myWishlist = useSelector((store) => store.AuthReducer.wishlist);
@@ -23,53 +26,71 @@ const Wishlist = () => {
   };
   //   console.log("myWishlist:", myWishlist);
   return (
-    <Container>
-      <Text margin="0 0 20px 0" fweight="bold" fsize={"18px"}>
-        My Wishlist{" "}
-        <Text fweight="100" display="inline">
-          {myWishlist.length} items
+    <>
+      <Navbar />
+      <Container>
+        <Text margin="0 0 20px 0" fweight="bold" fsize={"18px"}>
+          My Wishlist{" "}
+          <Text fweight="100" display="inline">
+            {myWishlist.length} items
+          </Text>
         </Text>
-      </Text>
-      <Grid>
-        {myWishlist.map((item) => {
-          return (
-            <ItemBox key={item.product_base_href}>
-              <MdClose
-                onClick={() => handleDeleteItem(item.product_base_href)}
-              />
-              <Image width="100%" src={item.img_responsive_src} />
-              <Text fsize="13px">{item.product_product}</Text>
-              <PriceWrap>
-                <Text fsize="13px">{item.product_discountedPrice}</Text>
-                <Text fsize="13px" decoration={"line-through"}>
-                  {item.product_strike}
-                </Text>
-                <Text fsize="13px" color="red">
-                  {item.product_discountPercentage}
-                </Text>
-              </PriceWrap>
-              <Button onClick={() => handleMoveItem(item)} border={"none"}>
-                <Text fweight="bold" color="red">
-                  MOVE TO BAG
-                </Text>
-              </Button>
-            </ItemBox>
-          );
-        })}
-      </Grid>
-      {/* If wishlist is empty */}
-      {myWishlist.length === 0 && (
-        <EmptyCart>
-          <Text margin="0 0 20px 0" fsize="20px">
-            YOUR WISHLIST IS EMPTY
-          </Text>
-          <Text>
-            Add items that you like to your wishlist. Review them anytime and
-            easily move them to the bag.
-          </Text>
-        </EmptyCart>
-      )}
-    </Container>
+        <Grid>
+          {myWishlist.map((item) => {
+            return (
+              <ItemBox key={item.product_base_href}>
+                <MdClose
+                  onClick={() => handleDeleteItem(item.product_base_href)}
+                />
+                <Image width="100%" src={item.img_responsive_src} />
+                <Text fsize="13px">{item.product_product}</Text>
+                <PriceWrap>
+                  <Text fsize="13px">{item.product_discountedPrice}</Text>
+                  <Text fsize="13px" decoration={"line-through"}>
+                    {item.product_strike}
+                  </Text>
+                  <Text fsize="13px" color="red">
+                    {item.product_discountPercentage}
+                  </Text>
+                </PriceWrap>
+                <Button onClick={() => handleMoveItem(item)} border={"none"}>
+                  <Text fweight="bold" color="red">
+                    MOVE TO BAG
+                  </Text>
+                </Button>
+              </ItemBox>
+            );
+          })}
+        </Grid>
+        {/* If wishlist is empty */}
+        {myWishlist.length === 0 && (
+          <EmptyCart>
+            <Text margin="0 0 20px 0" fsize="20px">
+              YOUR WISHLIST IS EMPTY
+            </Text>
+            <Text>
+              Add items that you like to your wishlist. Review them anytime and
+              easily move them to the bag.
+            </Text>
+            <Center>
+              <Link to={"/"}>
+                <Button
+                  border={"1px solid #3466e8"}
+                  fweight={"bold"}
+                  color={"#3466e8"}
+                  bgColor="white"
+                  padding="7px"
+                  text="CONTINUE SHOPPING"
+                  fsize={"18px"}
+                  radius="7px"
+                />
+              </Link>
+            </Center>
+          </EmptyCart>
+        )}
+      </Container>
+      <Footer />
+    </>
   );
 };
 
@@ -94,7 +115,7 @@ const ItemBox = styled.div`
   border-radius: 4px;
   overflow: hiddn;
   position: relative;
-  & > button {
+  & > button {7
     display: block;
     margin: 10px auto;
   }
@@ -115,6 +136,11 @@ const PriceWrap = styled.div`
   justify-content: space-around;
 `;
 
+const Center = styled.div`
+  display: block;
+  margin: auto;
+`;
+
 const EmptyCart = styled.div`
   //   border: 1px solid black;
   width: 300px;
@@ -123,6 +149,11 @@ const EmptyCart = styled.div`
   & > div {
     line-height: 1.7;
     text-align: center;
+  }
+  & > a {
+    // display: block;
+    text-align: center;
+    margin: 10px auto;
   }
 `;
 

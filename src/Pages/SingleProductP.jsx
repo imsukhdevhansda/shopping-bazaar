@@ -5,11 +5,13 @@ import { AiOutlineRight } from "react-icons/ai";
 import { getLocalData } from "../Utils/helperFuns";
 import { addToCart, addToWishList } from "../Redux/AuthReducer/action";
 import { useDispatch } from "react-redux";
+import Footer from "../Components/Footer/Footer";
+import Navbar from "../Components/Navbar";
 
 function SingleProductP() {
   let p = getLocalData("singlePageData");
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   let productSize = ["XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL"];
 
@@ -18,84 +20,94 @@ function SingleProductP() {
 
     dispatch(addToCart(p));
     alert("Added to bag Successfully 😊")
+
   };
 
   const handleAddWishlist = () => {
     dispatch(addToWishList(p));
+
      alert("Added to wishlist Successfully 😊");
+
   };
 
   return (
-    <div className={styles.SingleProductP}>
-      <div className={styles.spLocation}>
-        <span>Home / </span>
-        <span> Clothing / </span>
-        <span> Men Clothing /</span>
-        <span> Tshirts / </span>
-        <span>Roadster Tshirts </span>
-        <span> {">"} </span>
-        <span>More By Roadster</span>
-      </div>
-
-      <div className={styles.sppDiv}>
-        <div className={styles.sppImgDiv}>
-          <img src={p.img_responsive_src} style={{ width: "100%" }} alt="" />
+    <>
+      <Navbar />
+      <div className={styles.SingleProductP}>
+        <div className={styles.spLocation}>
+          <span>Home / </span>
+          <span> Clothing / </span>
+          <span> Men Clothing /</span>
+          <span> Tshirts / </span>
+          <span>Roadster Tshirts </span>
+          <span> {">"} </span>
+          <span>More By Roadster</span>
         </div>
-        <div className={styles.sppDetails}>
-          <h1 className={styles.sppDetailsHead}>{p.product_brand}</h1>
-          <h1 className={styles.sppDetailsTitle}>{p.product_product}</h1>
 
-          <div className={styles.sppDetailsRatings}>
-            <span>{p.product_ratingsContainer}</span>
-            <span>
+        <div className={styles.sppDiv}>
+          <div className={styles.sppImgDiv}>
+            <img src={p.img_responsive_src} style={{ width: "100%" }} alt="" />
+          </div>
+          <div className={styles.sppDetails}>
+            <h1 className={styles.sppDetailsHead}>{p.product_brand}</h1>
+            <h1 className={styles.sppDetailsTitle}>{p.product_product}</h1>
+
+            <div className={styles.sppDetailsRatings}>
+              <span>{p.product_ratingsContainer}</span>
+              <span>
+                {" "}
+                <BsFillStarFill style={{ color: "teal" }} />{" "}
+              </span>
+              <span>|</span>
+              <span>{p.product_ratingsCount} Ratings</span>
+            </div>
+            <hr className={styles.sppDetailsSeprator1} />
+
+            <div className={styles.sppDetailsPrices}>
+              <strong style={{ fontSize: "20px" }}>
+                ₹{p.product_discountedPrice}
+              </strong>
+              <span className={styles.sppDetailsStrick}>
+                {" "}
+                MRP {`₹${p.product_strike}`}
+              </span>
+              <span className={styles.sppDiscountPercentage}>
+                {p.product_discountPercentage}
+              </span>
+            </div>
+
+            <span className={styles.sppDetailsTax}>
               {" "}
-              <BsFillStarFill style={{ color: "teal" }} />{" "}
+              inclusive of all taxes{" "}
             </span>
-            <span>|</span>
-            <span>{p.product_ratingsCount} Ratings</span>
-          </div>
-          <hr className={styles.sppDetailsSeprator1} />
 
-          <div className={styles.sppDetailsPrices}>
-            <strong style={{ fontSize: "20px" }}>
-              ₹{p.product_discountedPrice}
-            </strong>
-            <span className={styles.sppDetailsStrick}>
+            <div className={styles.sppSize}>
               {" "}
-              MRP {`₹${p.product_strike}`}
-            </span>
-            <span className={styles.sppDiscountPercentage}>
-              {p.product_discountPercentage}
-            </span>
+              <span>SELECT SIZE</span>
+              <span>
+                SIZE CHART <AiOutlineRight style={{ fontSize: "13px" }} />{" "}
+              </span>{" "}
+            </div>
+
+            <div className={styles.sppSizeList}>
+              {productSize.map((size, id) => (
+                <button key={id}> {size}</button>
+              ))}
+            </div>
+
+            <button className={styles.sppAddToBag} onClick={handleAddCart}>
+              {" "}
+              <BsFillBagFill style={{ marginRight: "10px" }} /> ADD TO BAG
+            </button>
+            <button className={styles.sppWishlist} onClick={handleAddWishlist}>
+              {" "}
+              <BsFillHeartFill style={{ marginRight: "10px" }} /> WISHLIST
+            </button>
           </div>
-
-          <span className={styles.sppDetailsTax}> inclusive of all taxes </span>
-
-          <div className={styles.sppSize}>
-            {" "}
-            <span>SELECT SIZE</span>
-            <span>
-              SIZE CHART <AiOutlineRight style={{ fontSize: "13px" }} />{" "}
-            </span>{" "}
-          </div>
-
-          <div className={styles.sppSizeList}>
-            {productSize.map((size, id) => (
-              <button key={id}> {size}</button>
-            ))}
-          </div>
-
-          <button className={styles.sppAddToBag} onClick={handleAddCart}>
-            {" "}
-            <BsFillBagFill style={{ marginRight: "10px" }} /> ADD TO BAG
-          </button>
-          <button className={styles.sppWishlist} onClick={handleAddWishlist}>
-            {" "}
-            <BsFillHeartFill style={{ marginRight: "10px" }} /> WISHLIST
-          </button>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

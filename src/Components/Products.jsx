@@ -94,16 +94,18 @@ function Products() {
       <div className={style.productsDiv}>
         {products &&
           products.map((item, id) => {
-            return (
-              <Link
-                onClick={() => setLocalData("singlePageData", item)}
-                to={`/singleProduct/${item.product_discountedPrice}`}
-                className={style.singleProductLink}
-                key={id}
-              >
-                <SingleProduct {...item} />
-              </Link>
-            );
+            if (item.product_discountedPrice) {
+              return (
+                <Link
+                  onClick={() => setLocalData("singlePageData", item)}
+                  to={`/singleProduct/${item.product_discountedPrice}`}
+                  className={style.singleProductLink}
+                  key={id}
+                >
+                  <SingleProduct {...item} />
+                </Link>
+              );
+            }
           })}
       </div>
     </div>
