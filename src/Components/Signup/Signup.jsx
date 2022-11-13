@@ -8,9 +8,11 @@ import {
   signInWithPopup,
   updateProfile
 } from "firebase/auth";
+import {ChakraProvider} from '@chakra-ui/react'
 import { Box, Input, Image, Flex, Button } from "@chakra-ui/react";
 import { app, db } from "../../config/firebaseConfig"
 import { doc, setDoc } from "firebase/firestore";
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -61,6 +63,7 @@ const Signup = () => {
   };
 
   return (
+    <ChakraProvider>
     <div style={{marginTop:"150px"}}>
     <Flex h="100vh" alignItems="center" justifyContent="center" >
       <Box
@@ -83,16 +86,18 @@ const Signup = () => {
         <Button onClick={ handleSubmit } borderRadius="0" mb="-5px" pt="18px" pr="90px" pb="18px" pl="90px" size="sm" bg="red.400" fontSize="sm">
           Sign up
         </Button>
-
+        <Link to="/phonelogin">
         <Button  borderRadius="0" mb="-5px" pt="18px" pr="60px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="60px" size="sm" leftIcon={< FiPhone />}>
            Phone Login 
         </Button>
+        </Link>
         <Button onClick={ handleGooglelogin }  borderRadius="0" mb="25px" pt="18px" pr="75px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="75px" size="sm" leftIcon={< FcGoogle />}>
             Google
         </Button>
       </Box>
     </Flex>
   </div>
+  </ChakraProvider>
   )
 }
 
