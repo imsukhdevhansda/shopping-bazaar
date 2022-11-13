@@ -6,6 +6,7 @@ import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 import Payment from "./Payment";
 import CheckoutAddress from "./CheckoutAddress";
+import SingleProductP from "./SingleProductP";
 
 const AllRoutes = () => {
   return (
@@ -14,6 +15,8 @@ const AllRoutes = () => {
       <Route path="/address" element={<CheckoutAddress />}></Route>
       <Route path="/payment" element={<Payment />}></Route>
       <Route path="/Wishlist" element={<Wishlist />}></Route>
+      <Route path="/mens" element={<Men/>}></Route>
+      <Route path="/singleProduct/:id" element={<SingleProductP />}></Route>
     </Routes>
   );
 };

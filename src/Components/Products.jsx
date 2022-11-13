@@ -5,7 +5,8 @@ import SingleProduct from "./SingleProduct";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductsReducer/actionCreator";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams, Link } from "react-router-dom";
+import { setLocalData } from "../Utils/helperFuns";
 
 function Products() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function Products() {
   });
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
-  const [sortBy,setSortBy] = useState(null)
+  const [sortBy, setSortBy] = useState(null);
 
   // console.log(products);
 
@@ -30,21 +31,16 @@ function Products() {
     "Customer Rating",
   ];
 
-
-  const handleSort = (e)=>{
+  const handleSort = (e) => {
     let value = e.target.value;
-    console.log(value)
+    // console.log(value)
     value == "Price High to Low" ? setSortBy("desc") : setSortBy("asc");
-
-  }
-
-
-
+  };
 
   useEffect(() => {
     if (location) {
       const product_brand = searchParams.getAll("product_brand");
-      
+
       const queryParams = {
         params: {
           product_brand: product_brand,
@@ -53,9 +49,9 @@ function Products() {
         },
       };
 
-       dispatch(getProducts(queryParams));
+      dispatch(getProducts(queryParams));
     }
-  }, [location.search,sortBy]);
+  }, [location.search, sortBy]);
 
   // console.log(location);
 
@@ -76,19 +72,10 @@ function Products() {
                 </label>
               );
             })}
-
-          {/* <label className={style.productSortOption} >
-          
-            <span>Bundles</span>
-            <span>
-              <BiChevronDown style={{ fontSize: "25px", color: "grey" }} />
-            </span>
-          </label> */}
         </div>
         <div className={style.productSort2Parent}>
           <div className={style.productSort2}>
             <span className={style.productSort2SortBy}>Sort by :</span>
-            {/* <span className={style.productSort2Recomm}>Recommended</span> */}
             <select
               name=""
               className={style.productSort2Recomm}
@@ -101,33 +88,24 @@ function Products() {
                 </option>
               ))}
             </select>
-
-            {/* <BiChevronDown
-              style={{ fontSize: "30px", color: "grey", marginLeft: "35px" }}
-            /> */}
           </div>
-
-          {/* <div className={style.productSort2Options}>
-            {productSort2OptionsArr.map((item, id) => {
-              return (
-                <option
-                  value=""
-                  className={`${style.productSort2Select}`}
-                  key={id}
-                >
-                  {item}
-                </option>
-              );
-            })}
-          </div> */}
         </div>
       </div>
       <div className={style.productsDiv}>
         {products &&
-          products.map((item, id) => <SingleProduct {...item} key={id} />)}
+          products.map((item, id) => {
+            return (
+              <Link
+                onClick={() => setLocalData("singlePageData", item)}
+                to={`/singleProduct/${item.product_discountedPrice}`}
+                className={style.singleProductLink}
+                key={id}
+              >
+                <SingleProduct {...item} />
+              </Link>
+            );
+          })}
       </div>
-
-      {/* <SingleProduct /> */}
     </div>
   );
 }
