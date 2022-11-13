@@ -14,6 +14,7 @@ import {
 import Button from "../Components/Cart-Components/Button";
 import { setCartEmpty } from "../Redux/AuthReducer/action";
 import { useDispatch } from "react-redux";
+import { Navigate } from "react-router";
 
 const Payment = () => {
   const [capcha, setCapcha] = useState("");
@@ -43,6 +44,10 @@ const Payment = () => {
   const switTabs = (value) => {
     setActiveTab(value);
   };
+
+  if (orderPlaced) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <Container>
       <CartNav />
@@ -194,12 +199,12 @@ const PaymentMode = styled.div`
 `;
 
 const PaymentContent = styled.div`
-  border: 1px solid blue;
+  // border: 1px solid blue;
   display: flex;
 `;
 
 const PaymentBox = styled.div`
-  border: 1px solid red;
+  // border: 1px solid red;
   width: calc(100% - 35%);
   padding: 15px;
   & > button {
