@@ -49,7 +49,12 @@ const Signup = () => {
           });
           console.log(res);
           const docData={
-            address:[],
+            address: {
+              pincode: "",
+              locality: "",
+              city: "",
+              state: "",
+            },
             wishlist:[],
             bag:[],
             phone:""
