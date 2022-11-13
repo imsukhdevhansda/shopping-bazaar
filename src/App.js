@@ -1,13 +1,11 @@
 import "./App.css";
-// import Footer from "./Components/Footer/Footer";
-// import Navbar from "./Components/Navbar";
-// import Home from "./Pages/Home";
+import AllRoutes from "./Pages/AllRoutes";
 function App() {
-  return <div className="App">
-    {/* <Navbar/> */}
-    {/* <Footer/> */}
-    {/* <Home/> */}
-  </div>;
+  return (
+    <div className="App">
+      <AllRoutes />
+    </div>
+  );
 }
 
 export default App;
