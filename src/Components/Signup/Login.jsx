@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
+import { useNavigate } from "react-router-dom";
 import {  FiPhone } from 'react-icons/fi'
 import { loginsuccess } from '../../Redux/AuthReducer/action';
 import {useDispatch, useSelector} from "react-redux"
@@ -14,19 +15,19 @@ import { Box, Input, Image, Flex, Button, Text } from "@chakra-ui/react";
 import { collection } from "@firebase/firestore"
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig"; 
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Login = () => {
 
 
   const dispatch =useDispatch()
+  const navigate = useNavigate();
 
   const  userId =useSelector((store)=>{
     return store.AuthReducer.userId  
   })
 
-  
   const auth = getAuth();
   const Googleprovider = new GoogleAuthProvider();
 
@@ -54,7 +55,6 @@ const Login = () => {
 
 
   const handleSubmit = () => {
-    console.log(data);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const {displayName, uid} = userCredential.user;
@@ -62,18 +62,23 @@ const Login = () => {
         const query = doc(db,"users", `${uid}`)
         getDoc(query)
         .then((res)=> {
-          const {address, locality, pincode, bag, phone, wishlist}={
-              address:res._document.data.value.mapValue.fields.address.mapValue.fields.address.stringValue,
-              locality:res._document.data.value.mapValue.fields.address.mapValue.fields.locality.stringValue,
-              pincode:res._document.data.value.mapValue.fields.address.mapValue.fields.pincode.integerValue,
+
+          const address= {
+            pincode: res._document.data.value.mapValue.fields.address.mapValue.fields.pincode.integerValue,
+            locality: res._document.data.value.mapValue.fields.address.mapValue.fields.locality.stringValue,
+            town: res._document.data.value.mapValue.fields.address.mapValue.fields.town.stringValue,
+            city: res._document.data.value.mapValue.fields.address.mapValue.fields.city.stringValue,
+            state: res._document.data.value.mapValue.fields.address.mapValue.fields.state.stringValue,
+          }
+          const { bag, phone, wishlist}={
               bag:res._document.data.value.mapValue.fields.bag.arrayValue.values,
               phone:res._document.data.value.mapValue.fields.phone.stringValue,
               wishlist:res._document.data.value.mapValue.fields.wishlist.arrayValue.values,
-
           }
 
-          console.log(address, locality, pincode, bag, phone, wishlist)
-          dispatch(loginsuccess({displayName, uid, address, locality, pincode, bag, phone, wishlist }))
+          // console.log(  bag, phone, wishlist)
+          dispatch(loginsuccess({displayName, uid, address, bag, phone, wishlist }))
+          navigate("/");
         })
         
         .catch((err)=> alert(err))
