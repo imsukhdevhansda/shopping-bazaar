@@ -83,7 +83,8 @@ export const reducer = (state = initialState, action) => {
       };
 
     case "EMAIL_LOGIN_SUCCESS":
-      return { ...state, name: payload.displayName, userId: payload.uid };
+      const {address:getAddress}=payload;
+      return { ...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone,address:getAddress  };
     default:
       return state;
   }
