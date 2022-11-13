@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../Styles/men.module.css";
 import FilterSection from "./FilterSection";
 
 function Filters() {
+
+
+
+
   let categoryItems = [
     { option: "Tshirt", bg: false },
     { option: "Lounge Tshirts", bg: false },
@@ -49,24 +53,6 @@ function Filters() {
   return (
     <div className={style.uniqueFilter}>
       <h4 className={style.filterHead}> FILTERS</h4>
-      {/* <div className={style.filterCategory}>
-        <span className={style.categoryHead}> CATEGORIES</span>
-
-        {categoryItems &&
-          categoryItems.map((item, id) => {
-            return (
-              <label className={style.categoryItem} key={id}>
-                <input type="checkbox" className={style.categoryInput} />
-                
-                <span className={style.categoryItemTitle}>{item}</span>
-              </label>
-            );
-          })}
-      </div> */}
-
-      {/* <div className={style.filterCategory}>
-        <span className={style.categoryHead}> BRAND</span>
-      </div> */}
       <FilterSection title="CATEGORY" options={categoryItems} />
       <FilterSection title="BRAND" options={brands} />
       <FilterSection title="PRICE" options={prices} />
