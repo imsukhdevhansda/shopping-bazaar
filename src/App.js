@@ -8,7 +8,7 @@ function App() {
     {/* <Navbar/> */}
     {/* <Footer/> */}
     {/* <Home/> */}
-    <Men/>
+    {/* <Men/> */}
   </div>;
 
 }
