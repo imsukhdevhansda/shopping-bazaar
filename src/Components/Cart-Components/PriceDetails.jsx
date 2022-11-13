@@ -16,11 +16,9 @@ const PriceDetails = () => {
   const [totalMrp, setTotalMrp] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const cartItems = useSelector((store) => store.AuthReducer.cart);
-  console.log("cartItems:", cartItems);
   const maxPrice = CalculateTotal(cartItems, "product_strike");
   const actualAmount = CalculateTotal(cartItems, "product_discountedPrice");
   useEffect(() => {
-    console.log("runnign");
     setTotalMrp(maxPrice);
     setTotalAmount(actualAmount);
   });

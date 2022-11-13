@@ -309,7 +309,7 @@ const ScrollContent = styled.div`
   }
 `;
 
-const InputContainer = styled.div`
+export const InputContainer = styled.div`
   position: relative;
   //   border: 1px solid black;
   :focus-within {
@@ -320,7 +320,7 @@ const InputContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   padding: 0 12px;
   border: 1px solid #94969f;
   width: 100%;
@@ -332,7 +332,7 @@ const Input = styled.input`
   }
 `;
 
-const InputLabel = styled.label`
+export const InputLabel = styled.label`
   position: absolute;
   background-color: white;
   top: ${(length) => (length.top > 0 ? "-8px" : "11px")};

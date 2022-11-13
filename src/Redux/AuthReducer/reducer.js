@@ -256,7 +256,10 @@ export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.REMOVE_CART_ITEM:
-      const updatedCart = state.cart.filter((item) => item.id !== payload);
+      const updatedCart = state.cart.filter(
+        (item) => item.product_base_href !== payload
+      );
+      console.log("updatedCart:", updatedCart);
       return { ...state, cart: updatedCart };
 
     case types.ADD_TO_WISHLIST:
@@ -265,7 +268,7 @@ export const reducer = (state = initialState, action) => {
 
     case types.MODIFY_ITEM_QUANTITY:
       const updatedQuantity = state.cart.map((item) => {
-        if (item.id === payload.id) {
+        if (item.product_base_href === payload.id) {
           item.item_quantity = payload.quantity;
         }
         return item;
@@ -274,7 +277,7 @@ export const reducer = (state = initialState, action) => {
 
     case types.MODIFY_ITEM_SIZE:
       const updatedSize = state.cart.map((item) => {
-        if (item.id === payload.id) {
+        if (item.product_base_href === payload.id) {
           item.selected_size = payload.size;
         }
         return item;
@@ -290,6 +293,9 @@ export const reducer = (state = initialState, action) => {
         (item) => item.product_base_href !== payload
       );
       return { ...state, wishlist: newWishList };
+
+    case types.MAKE_CART_EMPTY:
+      return { ...state, cart: [] };
     default:
       return state;
   }

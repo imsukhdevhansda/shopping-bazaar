@@ -41,3 +41,9 @@ export const removeFromWishlist = (payload) => {
     payload,
   };
 };
+
+export const setCartEmpty = () => {
+  return {
+    type: types.MAKE_CART_EMPTY,
+  };
+};

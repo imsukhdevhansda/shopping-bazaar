@@ -18,6 +18,7 @@ const quantityItem = ["2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 const CartItem = ({
   img_responsive_src,
+  product_base_href,
   product_brand,
   product_product,
   sold = product_brand,
@@ -38,6 +39,7 @@ const CartItem = ({
   const moveToWishList = () => {
     const payload = {
       img_responsive_src,
+      product_base_href,
       product_brand,
       product_product,
       sold: product_brand,
@@ -46,8 +48,8 @@ const CartItem = ({
       product_strike,
       product_discountPercentage,
     };
-    dispatch(removeFromCart(id));
     dispatch(addToWishList(payload));
+    dispatch(removeFromCart(id));
   };
   const handleItemQuantity = (e) => {
     setQuantity(e.target.value);
