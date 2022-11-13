@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import {  FiPhone } from 'react-icons/fi'
+import { loginsuccess } from '../../Redux/AuthReducer/action';
+import {useDispatch, useSelector} from "react-redux"
+
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -8,9 +11,21 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { Box, Input, Image, Flex, Button, Text } from "@chakra-ui/react";
+import { collection } from "@firebase/firestore"
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../config/firebaseConfig"; 
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Login = () => {
 
+
+  const dispatch =useDispatch()
+
+  const  userId =useSelector((store)=>{
+    return store.AuthReducer.userId  
+  })
+
+  
   const auth = getAuth();
   const Googleprovider = new GoogleAuthProvider();
 
@@ -26,6 +41,8 @@ const Login = () => {
       });
   };
 
+
+
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
 
@@ -33,12 +50,32 @@ const Login = () => {
     setdata({ ...data, ...input });
   };
 
+
+
   const handleSubmit = () => {
     console.log(data);
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+        const {displayName, uid} = userCredential.user;
+        console.log(displayName, uid);
+        const query = doc(db,"users", `${uid}`)
+        getDoc(query)
+        .then((res)=> {
+          const {address, locality, pincode, bag, phone, wishlist}={
+              address:res._document.data.value.mapValue.fields.address.mapValue.fields.address.stringValue,
+              locality:res._document.data.value.mapValue.fields.address.mapValue.fields.locality.stringValue,
+              pincode:res._document.data.value.mapValue.fields.address.mapValue.fields.pincode.integerValue,
+              bag:res._document.data.value.mapValue.fields.bag.arrayValue.values,
+              phone:res._document.data.value.mapValue.fields.phone.stringValue,
+              wishlist:res._document.data.value.mapValue.fields.wishlist.arrayValue.values,
+
+          }
+
+          console.log(address, locality, pincode, bag, phone, wishlist)
+          dispatch(loginsuccess({displayName, uid, address, locality, pincode, bag, phone, wishlist }))
+        })
+        
+        .catch((err)=> alert(err))
       })
       .catch((error) => {
         const errorCode = error.code;

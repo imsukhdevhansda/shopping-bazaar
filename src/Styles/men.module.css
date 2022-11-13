@@ -33,8 +33,9 @@
 /* Filter component css  */
 
 .uniqueFilter{
-    /* border: 1px solid blue;   */
+    /* border: 1px solid blue;      */
     width: 19%;
+    margin-top: 5px;
     /* height: 700px; */
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
 
@@ -123,11 +124,12 @@
 /* Products component css  */
 
 .uniqueProducts{
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
+     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
      width: 81%;
 }
 .productSort{
-    border: 1px solid orange;
+    /* border: 1px solid orange;     */
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -177,18 +179,26 @@
     margin-left: 5px;
     font-size: 15px;
     font-weight: bold;
+    width: 65%;
+    height: 30px;
+    border: 0px;
+    cursor: pointer;
 }
 
-.productSort2Parent{
+
+/* .productSort2Parent{ */
     /* border: 2px black dotted; */
  /* display: inline-block; */
-}
+/* } */
+
+
 .productSort2Options{
      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     /* border: 1px solid red; */
       width: 255px;
       position: absolute;
-    /* visibility: hidden; */
+    visibility: hidden;
+     /* visibility: visible; */
 
 }
 .productSort2Select{
@@ -206,9 +216,74 @@
     
 } */
 
-/* .productSort2 :hover  { */
-     /* display: block;
-    position: absolute; */
-    /* background-color: rebeccapurple; */
-    /* visibility: visible; */
-/* } */
+ /* products div css  */
+ .productsDiv{     
+  display: grid;
+  justify-content: center;
+  grid-template-columns:repeat(auto-fit,minmax(200px,max-content)) ;
+  gap: 60px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  
+
+
+ }
+
+/* Single product css start  */
+
+.SingleProduct{
+    /* border: 1px solid red; */
+    width: 210px;
+    /* height: 360px; */
+    cursor: pointer;
+
+}
+.SingleProduct:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.singleProductImgDiv{
+    /* border: 1px solid green; */
+    height: 280px;
+
+}
+.singleProductImg{
+    width: 100%;
+}
+.sPDetails{
+    /* border: 1px solid brown; */
+    margin: 12px 0px 0px 0px;
+    padding: 0px 10px;
+}
+.sPPrice{
+    /* border: 1px solid blue; */
+    margin-bottom: 10px;
+    width: 94%;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.sPDetails h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.sPDetails h4 {
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 5px;
+    color: grey;
+}
+.product_discountedPrice{
+    font-size: 14px;
+    font-weight: bold;
+
+}
+.product_strike{
+text-decoration: line-through;
+color: grey;
+
+}
+.product_discountPercentage{
+    color: #FF905A;
+
+}
