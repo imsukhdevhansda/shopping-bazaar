@@ -4,22 +4,29 @@ import {  FiPhone } from 'react-icons/fi'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { app, db } from "../../config/firebaseConfig"
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { ChakraProvider } from '@chakra-ui/react'
 import { Box, Input, Image, Flex, Button, HStack, PinInput, PinInputField } from "@chakra-ui/react";
 import {
     getAuth,
     signInWithPhoneNumber,
     RecaptchaVerifier,
-    updateProfile
+    updateProfile,
+    signInWithPopup,
+    GoogleAuthProvider
   } from "firebase/auth";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { googleloginsuccess, loginsuccess, phoneloginsuccess } from '../../Redux/AuthReducer/action'
+import { useDispatch } from 'react-redux'
 
 
 const PhoneLogin = () => {
 
     const auth = getAuth();
     const user = auth.currentUser;
+    const dispatch =useDispatch()
+    const navigate = useNavigate();
+    const Googleprovider = new GoogleAuthProvider();
   
     const [err, seterr] = useState("");
     const [data, setdata] = useState({});
@@ -43,6 +50,53 @@ const PhoneLogin = () => {
       );
     };
 
+    const handleGooglelogin = () => {
+
+      signInWithPopup(auth, Googleprovider)
+        .then((userCredential) => {
+          const {displayName, uid} = userCredential.user;
+          console.log(displayName, uid);
+          const query = doc(db,"users", `${uid}`)
+          getDoc(query)
+          .then((res)=> {
+  
+            const address= {
+              pincode: res._document.data.value.mapValue.fields.address.mapValue.fields.pincode.integerValue,
+              locality: res._document.data.value.mapValue.fields.address.mapValue.fields.locality,
+              city: res._document.data.value.mapValue.fields.address.mapValue.fields.city.stringValue,
+              state: res._document.data.value.mapValue.fields.address.mapValue.fields.state.stringValue,
+            }
+            const { bag, phone, wishlist}={
+                bag:res._document.data.value.mapValue.fields.bag.arrayValue.values,
+                phone:res._document.data.value.mapValue.fields.phone.stringValue,
+                wishlist:res._document.data.value.mapValue.fields.wishlist.arrayValue.values,
+            }
+  
+            dispatch(googleloginsuccess({displayName, uid, address, bag, phone, wishlist }))
+            navigate("/");
+  
+          }).catch((err)=>{
+            const docData={
+              address: {
+                pincode: "",
+                locality: "",
+                city: "",
+                state: "",
+              },
+              wishlist:[],
+              bag:[],
+              phone:""
+            }
+           setDoc(doc(db, "users", `${userCredential.user.uid}`), docData);
+           navigate("/");
+          })
+          
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    };
+    
 
     const handleSubmit = () => {
       if (value === "" || value === undefined || value.length < 12)
@@ -67,28 +121,51 @@ const PhoneLogin = () => {
         let confirmationResult = window.confirmationResult;
         confirmationResult
           .confirm(OTP)
-          .then((res) => {
-            const user = res.user;
-            console.log(res);
-            updateProfile(auth.currentUser, {
-              displayName: data.username
-            });
-            const docData={
-              address: { pincode: "", address: "", locality: "" },
-              wishlist:[],
-              bag:[],
-              phone:res.user.phoneNumber
-            }
-           setDoc(doc(db, "users", `${res.user.uid}`), docData);
-
-          })
+          .then((userCredential) => {
+            const {displayName, uid} = userCredential.user;
+            console.log(displayName, uid);
+            const query = doc(db,"users", `${uid}`)
+            getDoc(query)
+            .then((res)=> {
+              const address= {
+                pincode: res._document.data.value.mapValue.fields.address.mapValue.fields.pincode.integerValue,
+                locality: res._document.data.value.mapValue.fields.address.mapValue.fields.locality,
+                city: res._document.data.value.mapValue.fields.address.mapValue.fields.city.stringValue,
+                state: res._document.data.value.mapValue.fields.address.mapValue.fields.state.stringValue,
+              }
+              const { bag, phone, wishlist}={
+                  bag:res._document.data.value.mapValue.fields.bag.arrayValue.values,
+                  phone:res._document.data.value.mapValue.fields.phone.stringValue,
+                  wishlist:res._document.data.value.mapValue.fields.wishlist.arrayValue.values,
+              }
+    
+              dispatch(phoneloginsuccess({displayName, uid, address, bag, phone, wishlist }))
+              navigate("/");
+    
+            }).catch((err)=>{
+              updateProfile(auth.currentUser, {
+                displayName: data.username
+              });
+              const docData={
+                address: {
+                  pincode: "",
+                  locality: "",
+                  city: "",
+                  state: "",
+                },
+                wishlist:[],
+                bag:[],
+                phone:""
+              }
+             setDoc(doc(db, "users", `${userCredential.user.uid}`), docData);
+             navigate("/");
+            })})
           .catch((error) => {
             alert(error);
           });
       }
-
     }
-  
+ 
 
   return (
     <ChakraProvider>
@@ -173,7 +250,7 @@ const PhoneLogin = () => {
            Email Login
         </Button>
         </Link>
-        <Button  borderRadius="0" mb="25px" pt="18px" pr="75px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="75px" size="sm" leftIcon={< FcGoogle />}>
+        <Button onClick={ handleGooglelogin }  borderRadius="0" mb="25px" pt="18px" pr="75px" pb="18px" bg="whiteAlpha.100" fontSize="sm" border="1px solid rgba(0, 0, 0, 0.10)" color="black" pl="75px" size="sm" leftIcon={< FcGoogle />}>
             Google
         </Button>
       </Box>
