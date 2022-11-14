@@ -55,6 +55,27 @@ export const updateAddress = (payload) => {
   };
 };
 
+export const loginrequest = (payload) =>(dispatch) => {
+  return dispatch({ type: types.EMAIL_LOGIN_REQUEST });
+};
+
 export const loginsuccess = (payload) => (dispatch) => {
   return dispatch({ type: types.EMAIL_LOGIN_SUCCESS, payload });
+};
+
+export const googleloginrequest = (payload) => (dispatch) => {
+  return dispatch({ type: types.GOOGLE_LOGIN_REQUEST });
+};
+
+export const googleloginsuccess = (payload) => (dispatch) => {
+  return dispatch({ type: types.GOOGLE_LOGIN_SUCCESS, payload });
+};
+
+export const phoneloginrequest = (payload) => (dispatch) => {
+  return dispatch({ type: types.PHONE_LOGIN_REQUEST });
+};
+
+export const phoneloginsuccess = (payload) => (dispatch) => {
+  return dispatch({ type: types.PHONE_LOGIN_SUCCESS, payload });
+
 };

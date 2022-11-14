@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import {  FiPhone } from 'react-icons/fi'
+import { loginrequest, googleloginrequest } from '../../Redux/AuthReducer/action';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -11,8 +12,9 @@ import {
 import {ChakraProvider} from '@chakra-ui/react'
 import { Box, Input, Image, Flex, Button } from "@chakra-ui/react";
 import { app, db } from "../../config/firebaseConfig"
-import { doc, setDoc } from "firebase/firestore";
-import { Link } from 'react-router-dom';
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const Signup = () => {
 
@@ -20,11 +22,49 @@ const Signup = () => {
   const Googleprovider = new GoogleAuthProvider();
   // const collectionRef = collection(database, 'users')
   const [data, setdata] = useState({});
+  const dispatch =useDispatch()
+  const navigate = useNavigate();
+
 
   const handleGooglelogin = () => {
     signInWithPopup(auth, Googleprovider)
-      .then((res) => {
-        console.log(res);
+      .then((userCredential) => {
+        const {displayName, uid} = userCredential.user;
+        console.log(displayName, uid);
+        const query = doc(db,"users", `${uid}`)
+        getDoc(query)
+        .then((res)=> {
+
+          const address= {
+            pincode: res._document.data.value.mapValue.fields.address.mapValue.fields.pincode.integerValue,
+            locality: res._document.data.value.mapValue.fields.address.mapValue.fields.locality,
+            city: res._document.data.value.mapValue.fields.address.mapValue.fields.city.stringValue,
+            state: res._document.data.value.mapValue.fields.address.mapValue.fields.state.stringValue,
+          }
+          const { bag, phone, wishlist}={
+              bag:res._document.data.value.mapValue.fields.bag.arrayValue.values,
+              phone:res._document.data.value.mapValue.fields.phone.stringValue,
+              wishlist:res._document.data.value.mapValue.fields.wishlist.arrayValue.values,
+          }
+
+          dispatch(googleloginrequest({displayName, uid, address, bag, phone, wishlist }))
+          navigate("/");
+
+        }).catch((err)=>{
+          const docData={
+            address: {
+              pincode: "",
+              locality: "",
+              city: "",
+              state: "",
+            },
+            wishlist:[],
+            bag:[],
+            phone:""
+          }
+         setDoc(doc(db, "users", `${userCredential.user.uid}`), docData);
+        })
+        
       })
       .catch((err) => {
         alert(err.message);
@@ -60,6 +100,7 @@ const Signup = () => {
             phone:""
           }
          setDoc(doc(db, "users", `${res.user.uid}`), docData);
+         navigate("/");
         })
         .catch((err) => alert(err));
       } 

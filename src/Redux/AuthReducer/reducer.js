@@ -9,7 +9,6 @@ const initialState = {
   address: {
     pincode: null,
     locality: null,
-    town: null,
     city: null,
     state: null,
   }, //For order placing
@@ -82,9 +81,33 @@ export const reducer = (state = initialState, action) => {
         },
       };
 
+    case "EMAIL_LOGIN_REQUEST":
+        return {...state, isLoading:true};
+
     case "EMAIL_LOGIN_SUCCESS":
       const {address:getAddress}=payload;
-      return { ...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone,address:getAddress  };
+      return { ...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone,address:getAddress, isLoading:false  };
+
+    case "EMAIL_LOGIN_FAILURE":
+      return {...state, isError:true}
+
+    case "GOOGLE_LOGIN_REQUEST":
+      return {...state, isLoading:true}
+
+    case "GOOGLE_LOGIN_SUCCESS":
+      const {address:getGoogleAddress}=payload;
+      return {...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone, address:getGoogleAddress, isLoading:false}
+    
+    case "PHONE_LOGIN_REQUEST":
+      return {...state, isLoading:true}
+
+    case "PHONE_LOGIN_SUCCESS":
+      const {address:getPhoneAddress}=payload;
+      return {...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone, address:getPhoneAddress, isLoading:false}
+    
+    case "SIGN_UP_REQUEST":
+      return {...state, isLoading:true}
+    
     default:
       return state;
   }
