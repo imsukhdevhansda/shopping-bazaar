@@ -112,7 +112,14 @@ const Navbar = () => {
                 </div>
                 
               </div> */}
-        <Image src={Logo} alt="logo image" pl={"20px"} w="65px" />
+        <Image
+          src={
+            "https://raw.githubusercontent.com/imsukhdevhansda/shopping-bazaar/master/src/assets/shopping_bazar.png"
+          }
+          alt="logo image"
+          pl={"20px"}
+          w="65px"
+        />
         {/* </div> */}
         {/* Menu Start here */}
         <CenterItemsNavbar />

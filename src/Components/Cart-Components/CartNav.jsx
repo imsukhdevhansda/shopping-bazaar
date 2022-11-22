@@ -8,9 +8,11 @@ const CartNav = () => {
     <NavigationContainer>
       <Link to="/">
         <Image
-          src={"https://compare.buyhatke.com/company/img/myntra_logo.png"}
+          src={
+            "https://raw.githubusercontent.com/imsukhdevhansda/shopping-bazaar/master/src/assets/shopping_bazar.png"
+          }
           alt="Myntra Logo"
-          height="35px"
+          height="55px"
         />
       </Link>
       <CheckoutSteps>
