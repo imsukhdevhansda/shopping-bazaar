@@ -154,7 +154,7 @@ const states = [
   },
 ];
 
-const ContentDetails = () => {
+const ContentDetails = ({ setPopUp }) => {
   const store = useSelector((store) => store.AuthReducer);
   console.log("store:", store);
   const {
@@ -190,6 +190,9 @@ const ContentDetails = () => {
       city,
       state_ut,
     };
+    if (setPopUp) {
+      setPopUp(false);
+    }
     dispatch(updateAddress(contentData));
     setPageRedirect(true);
   };
@@ -283,6 +286,8 @@ const ContentDetails = () => {
       </ScrollContent>
 
       <Button
+        border={"none"}
+        margin="0 0 10px 0"
         onClick={handleContactDetails}
         fsize={"14px"}
         padding="10px"
@@ -298,7 +303,7 @@ const ContentDetails = () => {
 const ContentContainer = styled.div`
   max-width: 480px;
   margin: auto;
-  padding: 10px 20px;
+  padding: 20px 20px;
   border: 1px solid grey;
 `;
 
