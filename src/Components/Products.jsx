@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductsReducer/actionCreator";
 import { useLocation, useSearchParams, Link } from "react-router-dom";
 import { setLocalData } from "../Utils/helperFuns";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 function Products() {
   const dispatch = useDispatch();
-  const { products } = useSelector((store) => {
+  const { products, isLoading } = useSelector((store) => {
     return { ...store.ProductsReducer };
   });
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +19,7 @@ function Products() {
   const [sortBy, setSortBy] = useState(null);
 
   // console.log(products);
+  console.log("loading:", isLoading);
 
   let productSort1Options = ["Bundles", "Country of Origin", "Size"];
 
@@ -107,6 +109,11 @@ function Products() {
               );
             }
           })}
+        {isLoading && (
+          <div className={style.loading_container}>
+            <AiOutlineLoading3Quarters />
+          </div>
+        )}
       </div>
     </div>
   );
