@@ -1,5 +1,6 @@
 import React from "react";
 import CartNav from "../Components/Cart-Components/CartNav";
+import { BsFillPatchCheckFill } from "react-icons/bs";
 import styled from "styled-components";
 import LeftContentBox from "../Components/Cart-Components/LeftContentBox";
 import RightContentBox from "../Components/Cart-Components/RightContentBox";
@@ -24,6 +25,7 @@ const Payment = () => {
   const [cardCvv, setCardCvv] = useState("");
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [activeTab, setActiveTab] = useState("cash");
+  const [showToast, setShowToast] = useState(false);
   const dispatch = useDispatch();
 
   const handlePlaceOrder = () => {
@@ -35,8 +37,12 @@ const Payment = () => {
         cardCvv.length === 0);
     if (!isNotFilled) {
       setTimeout(() => {
+        setShowToast(true);
+      }, 1000);
+      setTimeout(() => {
         dispatch(setCartEmpty());
-        alert("Order Placed Success!");
+        // alert("Order Placed Success!");
+        setShowToast(false);
         setOrderPlaced(true);
       }, 3000);
     }
@@ -51,6 +57,7 @@ const Payment = () => {
   return (
     <Container>
       <CartNav />
+      {/* <Button onClick={() => setShowToast(!showToast)} text="Test Toast" /> */}
       <LeftContentBox>
         <Text fweight="bold">Choose Payment Mode</Text>
         <PaymentContent>
@@ -175,6 +182,12 @@ const Payment = () => {
       <RightContentBox>
         <PriceDetails />
       </RightContentBox>
+      <ToastBox top={showToast ? "10px" : "-15%"}>
+        <BsFillPatchCheckFill />
+        <Text color="white" fsize="18px">
+          Order Placed Success!
+        </Text>
+      </ToastBox>
     </Container>
   );
 };
@@ -213,6 +226,27 @@ const PaymentBox = styled.div`
   }
   & > ${InputContainer} {
     margin: 15px auto;
+  }
+`;
+
+const ToastBox = styled.div`
+  position: absolute;
+  left: 50%;
+  transition: 500ms linear;
+  top: ${(style) => style.top};
+  transform: translate(-50%, 0);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  min-width: 246px;
+  gap: 5px;
+  background-color: #38a169;
+  border-radius: 7px;
+  & > svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+    color: white;
   }
 `;
 
