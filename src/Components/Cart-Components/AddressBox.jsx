@@ -37,7 +37,7 @@ const AddressBox = ({ pinCode }) => {
         <PopUpMenu>
           <Wrapper>
             <MdClose onClick={() => setPopUp(false)} />
-            <ContentDetails />
+            <ContentDetails setPopUp={setPopUp} />
           </Wrapper>
         </PopUpMenu>
       )}
