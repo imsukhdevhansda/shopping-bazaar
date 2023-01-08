@@ -112,14 +112,16 @@ const Navbar = () => {
                 </div>
                 
               </div> */}
-        <Image
-          src={
-            "https://raw.githubusercontent.com/imsukhdevhansda/shopping-bazaar/master/src/assets/shopping_bazar.png"
-          }
-          alt="logo image"
-          pl={"20px"}
-          w="65px"
-        />
+        <Link to="/">
+          <Image
+            src={
+              "https://raw.githubusercontent.com/imsukhdevhansda/shopping-bazaar/master/src/assets/shopping_bazar.png"
+            }
+            alt="logo image"
+            pl={"20px"}
+            w="65px"
+          />
+        </Link>
         {/* </div> */}
         {/* Menu Start here */}
         <CenterItemsNavbar />
