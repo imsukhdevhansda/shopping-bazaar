@@ -17,7 +17,8 @@ const getProducts = (queryParams) => (dispatch) => {
   dispatch(getProductsRequest());
   axios
     .get(
-      `https://shoppingbazaar.onrender.com/api/men_products`,
+      // `https://shoppingbazaar.onrender.com/api/men_products`,
+      `https://shopping-bazzar-backend.glitch.me/men_products`,
       queryParams
     )
     .then((res) => {
@@ -31,6 +32,5 @@ const getProducts = (queryParams) => (dispatch) => {
 };
 
 export { getProducts };
-
 
 // ?_page=2&_limit=35
