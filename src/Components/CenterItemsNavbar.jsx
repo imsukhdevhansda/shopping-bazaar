@@ -5,7 +5,9 @@ import studio from "../assets/sudio-nav-banner.png";
 
 const CenterItemsNavbar = () => {
   return (
-    <div style={{ width: "45%" }}>
+    <div
+    // style={{ width: "45%" }}
+    >
       <div className="header-item item-center">
         <nav className="menu">
           <div className="mobile-menu-head">

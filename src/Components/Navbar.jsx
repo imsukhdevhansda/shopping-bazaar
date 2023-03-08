@@ -36,14 +36,15 @@ const Navbar = () => {
     <ChakraProvider>
       <Flex
         h={"75px"}
-        justifyContent={"space-around"}
+        justifyContent={"flex-start"}
         alignItems="center"
-        gap="25px"
+        // gap="25px"
         className="header"
       >
         <Menu>
           <MenuButton
-            display={{ lg: "none", md: "block", base: "block" }}
+            // display={{ lg: "none", md: "block", base: "block" }}
+            display={{ lg: "none", md: "none", base: "block" }}
             ml="10px"
             as={IconButton}
             aria-label="Options"
@@ -127,7 +128,7 @@ const Navbar = () => {
         <CenterItemsNavbar />
         {/* Menu ends here */}
 
-        <div className="header-item item-right">
+        {/* <div className="header-item item-right">
           <InputGroup w={{ base: "100%", sm: "100%", md: "100%", lg: "350px" }}>
             <InputRightElement
               pointerEvents="none"
@@ -140,7 +141,7 @@ const Navbar = () => {
               placeholder="Search for products , brands and more "
             />
           </InputGroup>
-        </div>
+        </div> */}
         <div className="NavbarIcons">
           {" "}
           <NavbarIcons />
