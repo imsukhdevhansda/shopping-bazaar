@@ -24,7 +24,7 @@ const CenterItemsNavbar = () => {
               <Link to="/mens" className="">
                 MEN
               </Link>
-              <div className="sub-menu mega-menu mega-menu-column-5">
+              {/* <div className="sub-menu mega-menu mega-menu-column-5">
                 <div className="list-item">
                   <h4 className="title">Topwear</h4>
                   <ul>
@@ -235,10 +235,10 @@ const CenterItemsNavbar = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </li>
             <li className="menu-item-has-children">
-              <Link to="/women" className="">
+              <Link to="#" className="">
                 WOMEN{" "}
               </Link>
               <div className="sub-menu mega-menu mega-menu-column-5">
@@ -456,7 +456,7 @@ const CenterItemsNavbar = () => {
             </li>
 
             <li className="menu-item-has-children">
-              <Link to="/kids" className="">
+              <Link to="#" className="">
                 KIDS
               </Link>
               <div className="sub-menu mega-menu mega-menu-column-5">
@@ -674,7 +674,7 @@ const CenterItemsNavbar = () => {
             </li>
 
             <li className="menu-item-has-children">
-              <Link to="/homeandliving" className="">
+              <Link to="#" className="">
                 HOME & LIVING
               </Link>
               <div className="sub-menu mega-menu mega-menu-column-5">
@@ -891,7 +891,7 @@ const CenterItemsNavbar = () => {
               </div>
             </li>
             <li className="menu-item-has-children">
-              <Link to="/beuty" className="">
+              <Link to="#" className="">
                 BEAUTY
               </Link>
               <div className="sub-menu mega-menu mega-menu-column-5">
@@ -1108,7 +1108,7 @@ const CenterItemsNavbar = () => {
               </div>
             </li>
             <li className="menu-item-has-children">
-              <Link to="/studio" className="">
+              <Link to="#" className="">
                 STUDIO
               </Link>
               <div className="sub-menu mega-menu mega-menu-column-1">

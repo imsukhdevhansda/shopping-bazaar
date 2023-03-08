@@ -65,21 +65,21 @@ const Navbar = () => {
 
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/women" className="">
+                <Link to="#" className="">
                   Women
                 </Link>{" "}
               </li>
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/kids" className="">
+                <Link to="#" className="">
                   Kids
                 </Link>{" "}
               </li>
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/homeandliving" className="">
+                <Link to="#" className="">
                   Homes & Living
                 </Link>{" "}
               </li>
@@ -87,14 +87,14 @@ const Navbar = () => {
             <MenuItem></MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/beauty" className="">
+                <Link to="#" className="">
                   Beauty
                 </Link>{" "}
               </li>
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/studio" className="">
+                <Link to="#" className="">
                   Studio
                 </Link>
               </li>

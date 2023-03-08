@@ -1,6 +1,6 @@
-import {  Image, LinkBox } from "@chakra-ui/react";
+import { Image, LinkBox } from "@chakra-ui/react";
 import React from "react";
-import "./BannerSelectmages.css"
+import "./BannerSelectmages.css";
 
 const BannerSelectImages = () => {
   const prodImages = [
@@ -38,12 +38,14 @@ const BannerSelectImages = () => {
   return (
     <>
       <LinkBox>
-        <div className="Category-image">     
-         
-        
-          {
-            prodImages.map((imag) => {
-            return<div> <Image width={"80%"} src={imag.img} />;</div>
+        <div className="Category-image">
+          {prodImages.map((imag, id) => {
+            return (
+              <div key={id}>
+                {" "}
+                <Image width={"60%"} src={imag.img} />
+              </div>
+            );
           })}
         </div>
       </LinkBox>
