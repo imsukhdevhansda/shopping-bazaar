@@ -19,24 +19,25 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { Link } from "react-router-dom";
 
+const userInput = {
+  email: "",
+  password: "",
+};
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const userId = useSelector((store) => {
-    return store.AuthReducer.userId;
-  });
-
   const auth = getAuth();
   const Googleprovider = new GoogleAuthProvider();
 
-  const [data, setdata] = useState({});
+  const [data, setdata] = useState(userInput);
 
   const handleGooglelogin = () => {
     signInWithPopup(auth, Googleprovider)
       .then((userCredential) => {
         const { displayName, uid } = userCredential.user;
-        console.log(displayName, uid);
+        // console.log(displayName, uid);
         const query = doc(db, "users", `${uid}`);
         getDoc(query)
           .then((res) => {
@@ -87,6 +88,16 @@ const Login = () => {
               phone: "",
             };
             setDoc(doc(db, "users", `${userCredential.user.uid}`), docData);
+            dispatch(
+              googleloginsuccess({
+                displayName,
+                uid,
+                address: docData.address,
+                bag: docData.bag,
+                phone: "",
+                wishlist: [],
+              })
+            );
             navigate("/");
           });
       })
@@ -97,8 +108,6 @@ const Login = () => {
 
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
-
-    console.log(event.target.value);
     setdata({ ...data, ...input });
   };
 
@@ -107,7 +116,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const { displayName, uid } = userCredential.user;
-        console.log(displayName, uid);
+        // console.log(displayName, uid);
         const query = doc(db, "users", `${uid}`);
         getDoc(query)
           .then((res) => {
@@ -172,6 +181,7 @@ const Login = () => {
             />
             <Input
               w="90%"
+              type="email"
               placeholder="Email"
               name="email"
               onChange={handleInput}
@@ -182,6 +192,7 @@ const Login = () => {
               w="90%"
               placeholder="Password"
               name="password"
+              type="password"
               onChange={handleInput}
               color="black"
               size="sm"

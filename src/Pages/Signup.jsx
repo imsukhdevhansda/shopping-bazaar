@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -11,14 +9,17 @@ import { Box, Input, Image, Flex, Button, Text } from "@chakra-ui/react";
 import { app, db } from "../config/firebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+
+const userInput = {
+  username: "",
+  email: "",
+  password: "",
+};
 
 const Signup = () => {
   const auth = getAuth();
-  const Googleprovider = new GoogleAuthProvider();
-  // const collectionRef = collection(database, 'users')
-  const [data, setdata] = useState({});
-  const dispatch = useDispatch();
+  const [data, setdata] = useState(userInput);
+  // console.log("data:", data);
   const navigate = useNavigate();
 
   const handleInput = (event) => {
@@ -29,13 +30,13 @@ const Signup = () => {
   const handleSubmit = async () => {
     if (data.username !== undefined || "") {
       if (data.email !== undefined || "") {
-        console.log("hi");
+        // console.log("hi");
         createUserWithEmailAndPassword(auth, data.email, data.password)
           .then((res) => {
             updateProfile(auth.currentUser, {
               displayName: data.username,
             });
-            console.log(res);
+            // console.log(res);
             const docData = {
               address: {
                 pincode: "",
@@ -75,6 +76,7 @@ const Signup = () => {
             />
             <Input
               w="90%"
+              type="text"
               onChange={handleInput}
               placeholder="Username"
               name="username"
@@ -83,6 +85,7 @@ const Signup = () => {
             />
             <Input
               w="90%"
+              type="email"
               onChange={handleInput}
               placeholder="Email"
               name="email"
@@ -94,6 +97,7 @@ const Signup = () => {
               onChange={handleInput}
               placeholder="Password"
               name="password"
+              type="password"
               color="black"
               size="sm"
             />
