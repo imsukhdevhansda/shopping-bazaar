@@ -4,13 +4,14 @@ import { BsFillStarFill, BsFillBagFill, BsFillHeartFill } from "react-icons/bs";
 import { AiOutlineRight } from "react-icons/ai";
 import { getLocalData } from "../Utils/helperFuns";
 import { addToCart, addToWishList } from "../Redux/AuthReducer/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar";
 import Toast from "../Components/Cart-Components/Toast";
 
 function SingleProductP() {
   const [toastData, setToastData] = useState(null);
+  const { cart, wishlist } = useSelector((store) => store.AuthReducer);
   let p = getLocalData("singlePageData");
 
   const dispatch = useDispatch();
@@ -19,23 +20,45 @@ function SingleProductP() {
 
   const handleAddCart = () => {
     // console.log(p);
+    const isAvailable = cart.find(
+      (item) => item.product_base_href === p.product_base_href
+    );
 
-    dispatch(addToCart(p));
-    // alert("Added to bag Successfully 😊");
-    setToastData({ msg: "Added to bag Successfully 😊", type: "success" });
-    setTimeout(() => {
-      setToastData(null);
-    }, 2000);
+    if (!isAvailable) {
+      dispatch(addToCart(p));
+      // alert("Added to bag Successfully 😊");
+      setToastData({ msg: "Added to bag Successfully 😊", type: "success" });
+      setTimeout(() => {
+        setToastData(null);
+      }, 2000);
+    } else {
+      setToastData({ msg: "Item already in Bag 😁", type: "warning" });
+      setTimeout(() => {
+        setToastData(null);
+      }, 2000);
+    }
   };
 
   const handleAddWishlist = () => {
-    dispatch(addToWishList(p));
-
-    // alert("Added to wishlist Successfully 😊");
-    setToastData({ msg: "Added to wishlist Successfully 😊", type: "success" });
-    setTimeout(() => {
-      setToastData(null);
-    }, 2000);
+    const isAvailable = wishlist.find(
+      (item) => item.product_base_href === p.product_base_href
+    );
+    if (!isAvailable) {
+      dispatch(addToWishList(p));
+      // alert("Added to wishlist Successfully 😊");
+      setToastData({
+        msg: "Added to wishlist Successfully 😊",
+        type: "success",
+      });
+      setTimeout(() => {
+        setToastData(null);
+      }, 2000);
+    } else {
+      setToastData({ msg: "Item already in Wishlist 😁", type: "warning" });
+      setTimeout(() => {
+        setToastData(null);
+      }, 2000);
+    }
   };
 
   return (
