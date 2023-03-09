@@ -36,26 +36,24 @@ const DealOfTheDay = () => {
   ];
   return (
     <>
-     
       <Box
+        p={"0 10px"}
         backgroundImage="url('')"
         maxW={"100%"}
         maxh={""}
         m={"20px 0"}
         display={"grid"}
-        gap='10px'
-        gridTemplateColumns='repeat(5,1fr)'
-       
+        gap="10px"
+        gridTemplateColumns="repeat(5,1fr)"
       >
-        {prodImages.map((imag) => {
+        {prodImages.map((imag, id) => {
           return (
-            <Box>
+            <Box key={id}>
               <Image width={"100%"} key={prodImages} src={imag.img} />
             </Box>
           );
         })}
       </Box>
-     
     </>
   );
 };

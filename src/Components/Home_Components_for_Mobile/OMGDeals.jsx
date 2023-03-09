@@ -2,7 +2,6 @@ import React from "react";
 
 import { Box, Heading, Image, LinkBox } from "@chakra-ui/react";
 
-
 const OMGDeals = () => {
   const prodImages = [
     {
@@ -38,24 +37,24 @@ const OMGDeals = () => {
   ];
   return (
     <>
-     
-      <Box className="omgImages"
-      maxW={"100%"}
-      maxh={""}
-      m={"20px 0"}
-      display={"grid"}
-      gap='10px'
-      gridTemplateColumns='repeat(5,1fr)'     
+      <Box
+        className="omgImages"
+        p={"0 10px"}
+        maxW={"100%"}
+        maxh={""}
+        m={"20px 0"}
+        display={"grid"}
+        gap="10px"
+        gridTemplateColumns="repeat(5,1fr)"
       >
-        {prodImages.map((imag) => {
+        {prodImages.map((imag, id) => {
           return (
-            <Box>
+            <Box key={id}>
               <Image width={"100%"} key={prodImages} src={imag.img} />
             </Box>
           );
         })}
       </Box>
-      
     </>
   );
 };

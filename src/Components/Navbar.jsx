@@ -36,14 +36,15 @@ const Navbar = () => {
     <ChakraProvider>
       <Flex
         h={"75px"}
-        justifyContent={"space-around"}
+        justifyContent={"flex-start"}
         alignItems="center"
-        gap="25px"
+        // gap="25px"
         className="header"
       >
         <Menu>
           <MenuButton
-            display={{ lg: "none", md: "block", base: "block" }}
+            // display={{ lg: "none", md: "block", base: "block" }}
+            display={{ lg: "none", md: "none", base: "block" }}
             ml="10px"
             as={IconButton}
             aria-label="Options"
@@ -64,21 +65,21 @@ const Navbar = () => {
 
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/women" className="">
+                <Link to="#" className="">
                   Women
                 </Link>{" "}
               </li>
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/kids" className="">
+                <Link to="#" className="">
                   Kids
                 </Link>{" "}
               </li>
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/homeandliving" className="">
+                <Link to="#" className="">
                   Homes & Living
                 </Link>{" "}
               </li>
@@ -86,14 +87,14 @@ const Navbar = () => {
             <MenuItem></MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/beauty" className="">
+                <Link to="#" className="">
                   Beauty
                 </Link>{" "}
               </li>
             </MenuItem>
             <MenuItem>
               <li className="menu-item-has-children">
-                <Link to="/studio" className="">
+                <Link to="#" className="">
                   Studio
                 </Link>
               </li>
@@ -127,7 +128,7 @@ const Navbar = () => {
         <CenterItemsNavbar />
         {/* Menu ends here */}
 
-        <div className="header-item item-right">
+        {/* <div className="header-item item-right">
           <InputGroup w={{ base: "100%", sm: "100%", md: "100%", lg: "350px" }}>
             <InputRightElement
               pointerEvents="none"
@@ -140,7 +141,7 @@ const Navbar = () => {
               placeholder="Search for products , brands and more "
             />
           </InputGroup>
-        </div>
+        </div> */}
         <div className="NavbarIcons">
           {" "}
           <NavbarIcons />

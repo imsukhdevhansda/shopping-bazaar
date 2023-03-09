@@ -7,19 +7,24 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-@media screen and (min-width: 50px) and (max-width: 480px) {
+.Category-image > div > img {
+  margin: auto;
+}
+
+/* @media screen and (min-width: 50px) and (max-width: 480px) {
   .Category-image {
     grid-template-columns: repeat(2, 1fr);
   }
-}
+} */
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .Category-image {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (max-width: 769px) {
   .Category-image {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Category-image {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

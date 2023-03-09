@@ -17,9 +17,9 @@ const initialState = {
 };
 
 //set Default item Quantity as 1;
-initialState.cart.map((items) => (items["item_quantity"] = 1));
+// initialState.cart.map((items) => (items["item_quantity"] = 1));
 //set Cart item id
-initialState.cart.map((items) => (items["id"] = items.product_base_href));
+// initialState.cart.map((items) => (items["id"] = items.product_base_href));
 
 export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -82,32 +82,56 @@ export const reducer = (state = initialState, action) => {
       };
 
     case "EMAIL_LOGIN_REQUEST":
-        return {...state, isLoading:true};
+      return { ...state, isLoading: true };
 
     case "EMAIL_LOGIN_SUCCESS":
-      const {address:getAddress}=payload;
-      return { ...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone,address:getAddress, isLoading:false  };
+      const { address: getAddress } = payload;
+      return {
+        ...state,
+        name: payload.displayName,
+        userId: payload.uid,
+        mobile_number: payload.phone,
+        address: getAddress,
+        isLoading: false,
+      };
 
     case "EMAIL_LOGIN_FAILURE":
-      return {...state, isError:true}
+      return { ...state, isError: true };
 
     case "GOOGLE_LOGIN_REQUEST":
-      return {...state, isLoading:true}
+      return { ...state, isLoading: true };
 
     case "GOOGLE_LOGIN_SUCCESS":
-      const {address:getGoogleAddress}=payload;
-      return {...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone, address:getGoogleAddress, isLoading:false}
-    
+      const { address: getGoogleAddress } = payload;
+      return {
+        ...state,
+        name: payload.displayName,
+        userId: payload.uid,
+        mobile_number: payload.phone,
+        address: getGoogleAddress,
+        isLoading: false,
+      };
+
     case "PHONE_LOGIN_REQUEST":
-      return {...state, isLoading:true}
+      return { ...state, isLoading: true };
 
     case "PHONE_LOGIN_SUCCESS":
-      const {address:getPhoneAddress}=payload;
-      return {...state, name: payload.displayName, userId: payload.uid, mobile_number:payload.phone, address:getPhoneAddress, isLoading:false}
-    
+      const { address: getPhoneAddress } = payload;
+      return {
+        ...state,
+        name: payload.displayName,
+        userId: payload.uid,
+        mobile_number: payload.phone,
+        address: getPhoneAddress,
+        isLoading: false,
+      };
+
     case "SIGN_UP_REQUEST":
-      return {...state, isLoading:true}
-    
+      return { ...state, isLoading: true };
+
+    case types.LOG_OUT:
+      return initialState;
+
     default:
       return state;
   }

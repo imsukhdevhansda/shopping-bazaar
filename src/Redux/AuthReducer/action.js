@@ -55,7 +55,7 @@ export const updateAddress = (payload) => {
   };
 };
 
-export const loginrequest = (payload) =>(dispatch) => {
+export const loginrequest = (payload) => (dispatch) => {
   return dispatch({ type: types.EMAIL_LOGIN_REQUEST });
 };
 
@@ -77,5 +77,8 @@ export const phoneloginrequest = (payload) => (dispatch) => {
 
 export const phoneloginsuccess = (payload) => (dispatch) => {
   return dispatch({ type: types.PHONE_LOGIN_SUCCESS, payload });
+};
 
+export const userLogOut = () => (dispatch) => {
+  return dispatch({ type: types.LOG_OUT });
 };

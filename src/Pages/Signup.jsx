@@ -49,7 +49,7 @@ const Signup = () => {
               phone: "",
             };
             setDoc(doc(db, "users", `${res.user.uid}`), docData);
-            navigate("/");
+            navigate("/login");
           })
           .catch((err) => alert(err));
       }

@@ -1,7 +1,6 @@
 import React from "react";
-import "./BestBuy.css"
+import "./BestBuy.css";
 import { Box, Heading, Image } from "@chakra-ui/react";
-
 
 const BestBuys = () => {
   const prodImages = [
@@ -39,17 +38,18 @@ const BestBuys = () => {
   return (
     <>
       <Box
+        p={"0 10px"}
         backgroundImage="url('')"
         maxW={"100%"}
         maxh={"300px"}
         m={"20px 0"}
         display={"grid"}
-        gap='10px'
-        gridTemplateColumns='repeat(5,1fr)'
+        gap="10px"
+        gridTemplateColumns="repeat(5,1fr)"
       >
-        {prodImages.map((imag) => {
+        {prodImages.map((imag, id) => {
           return (
-            <Box>
+            <Box key={id}>
               <Image width={"100%"} key={prodImages} src={imag.img} />
             </Box>
           );
