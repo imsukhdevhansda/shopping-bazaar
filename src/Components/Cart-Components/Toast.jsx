@@ -11,7 +11,13 @@ const Toast = ({ message, type }) => {
       }
       top={message ? "10px" : "-15%"}
     >
-      {type === "fail" || "warning" ? <MdError /> : <BsFillPatchCheckFill />}
+      {type === "fail" ? (
+        <MdError />
+      ) : type === "warning" ? (
+        <MdError />
+      ) : (
+        <BsFillPatchCheckFill />
+      )}
       <div color="white" fsize="18px">
         {message}
       </div>
