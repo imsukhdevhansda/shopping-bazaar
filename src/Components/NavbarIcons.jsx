@@ -17,11 +17,8 @@ import { userLogOut } from "../Redux/AuthReducer/action";
 
 const NavbarIcons = () => {
   const { name, userId } = useSelector((store) => store.AuthReducer);
-  console.log("userId:", userId);
-  console.log("name:", name);
   const dispatch = useDispatch();
   const handleLogOut = () => {
-    console.log("clicking");
     dispatch(userLogOut());
   };
   return (
