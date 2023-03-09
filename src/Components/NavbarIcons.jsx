@@ -11,13 +11,18 @@ import React from "react";
 import { BiHeart } from "react-icons/bi";
 import { GrUser } from "react-icons/gr";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector, userDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { userLogOut } from "../Redux/AuthReducer/action";
 
 const NavbarIcons = () => {
   const { name, userId } = useSelector((store) => store.AuthReducer);
+  console.log("userId:", userId);
+  console.log("name:", name);
+  const dispatch = useDispatch();
   const handleLogOut = () => {
     console.log("clicking");
+    dispatch(userLogOut());
   };
   return (
     <Flex

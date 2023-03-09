@@ -129,6 +129,9 @@ export const reducer = (state = initialState, action) => {
     case "SIGN_UP_REQUEST":
       return { ...state, isLoading: true };
 
+    case types.LOG_OUT:
+      return initialState;
+
     default:
       return state;
   }
