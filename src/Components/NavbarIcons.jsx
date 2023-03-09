@@ -1,14 +1,26 @@
-import { Flex } from "@chakra-ui/react";
+import {
+  Flex,
+  MenuItem,
+  Menu,
+  MenuButton,
+  MenuList,
+  Button,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 import { BiHeart } from "react-icons/bi";
 import { GrUser } from "react-icons/gr";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const NavbarIcons = () => {
+  const { name, userId } = useSelector((store) => store.AuthReducer);
+  const handleLogOut = () => {
+    console.log("clicking");
+  };
   return (
     <Flex
-       
       textAlign={"center"}
       bg={""}
       pr="20px"
@@ -16,7 +28,7 @@ const NavbarIcons = () => {
       w="auto"
       gap="15px"
     >
-      <Link
+      {/* <Link
         style={{
           display: "flex",
           flexDirection: "column",
@@ -25,10 +37,39 @@ const NavbarIcons = () => {
           textAlign: "center",
         }}
         to="/Login"
-      >
-        <GrUser style={{ fontSize: "20px", fontWeight: "200" }} />
-        <span>Profile</span>
-      </Link>
+      > */}
+      {/* <GrUser style={{ fontSize: "20px", fontWeight: "200" }} />
+      <span>Profile</span> */}
+      {/* </Link> */}
+      <Menu>
+        <MenuButton
+          flexDirection={"column-reverse"}
+          gap={"5px"}
+          background={"none"}
+          fontWeight={"100"}
+          as={Button}
+          rightIcon={<GrUser />}
+          _hover={"none"}
+          _active={"none"}
+        >
+          Profile
+        </MenuButton>
+        <MenuList>
+          {name && <MenuItem>{name}</MenuItem>}
+          {userId ? (
+            <MenuItem onClick={handleLogOut}>LogOut</MenuItem>
+          ) : (
+            <>
+              <Link to={"/login"}>
+                <MenuItem>Login</MenuItem>
+              </Link>
+              <Link to={"/signup"}>
+                <MenuItem>Signup</MenuItem>
+              </Link>
+            </>
+          )}
+        </MenuList>
+      </Menu>
       <Link
         style={{
           display: "flex",
