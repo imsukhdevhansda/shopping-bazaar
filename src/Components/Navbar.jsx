@@ -52,9 +52,9 @@ const Navbar = () => {
             variant="outline"
           />
           <MenuList listStyleType="none">
-            <MenuItem>
+            {/* <MenuItem>
               <NavbarIcons />
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem>
               <li className="menu-item-has-children">
                 <Link to="/mens" className="">
