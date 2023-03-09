@@ -14,25 +14,16 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { useDispatch, useSelector, userDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { userLogOut } from "../Redux/AuthReducer/action";
-import Toast from "./Cart-Components/Toast";
 
 const NavbarIcons = () => {
-  const [toastData, setToastData] = useState(null);
   const { name, userId } = useSelector((store) => store.AuthReducer);
   const dispatch = useDispatch();
   const handleLogOut = () => {
     dispatch(userLogOut());
-    setToastData({
-      msg: "LogOut Successfully 😊",
-      type: "success",
-    });
-    setTimeout(() => {
-      setToastData(null);
-    }, 2000);
+    alert("LogOut Successfully");
   };
   return (
     <>
-      <Toast message={toastData?.msg} type={toastData?.type} />
       <Flex
         textAlign={"center"}
         bg={""}
@@ -64,6 +55,8 @@ const NavbarIcons = () => {
             rightIcon={<GrUser />}
             _hover={"none"}
             _active={"none"}
+            p={0}
+            m={0}
           >
             Profile
           </MenuButton>
